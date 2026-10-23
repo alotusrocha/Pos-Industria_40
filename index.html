@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Eco-Mineração 4.0 | Estudo de Viabilidade & Investimento Estratégico</title>
-  <meta name="description" content="Proposta técnica e estudo de viabilidade para economia circular, gestão hídrica e mineração 4.0 no APL de Rochas Ornamentais de Cachoeiro de Itapemirim (ES).">
-  
+  <meta name="description"
+    content="Proposta técnica e estudo de viabilidade para economia circular, gestão hídrica e mineração 4.0 no APL de Rochas Ornamentais de Cachoeiro de Itapemirim (ES).">
+
+  <!-- Favicon: Bloco de Mármore Ornamental Isométrico -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="theme-clean-diorama">
 
   <!-- Minimal Executive Header -->
@@ -21,7 +32,7 @@
     <div class="header-brand">
       <div class="brand-pill">
         <span class="status-indicator"></span>
-        <span class="brand-sub">PÓS-GRADUAÇÃO INDÚSTRIA 4.0 & MINERAÇÃO SUSTENTÁVEL</span>
+        <span class="brand-sub">PÓS-GRADUAÇÃO INDÚSTRIA 4.0 - Disciplina: MINERAÇÃO 4.0</span>
       </div>
       <h1 class="brand-title">
         Eco-Mineração 4.0 <span class="brand-location">Cachoeiro de Itapemirim (ES)</span>
@@ -32,26 +43,26 @@
     <div class="header-actions">
       <button class="btn-executive" id="btnOpenExecutive" title="Ver Análise de Investimento vs Custo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-          <polyline points="17 6 23 6 23 12"/>
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+          <polyline points="17 6 23 6 23 12" />
         </svg>
         <span>Visão Diretoria (ROI)</span>
       </button>
 
       <button class="btn-dossier" id="btnOpenDossier" title="Ver Dossiê Acadêmico nos 5 Eixos ABNT">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="16" y1="13" x2="8" y2="13"/>
-          <line x1="16" y1="17" x2="8" y2="17"/>
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
         </svg>
         <span>Proposta Técnica (5 Eixos)</span>
       </button>
 
       <button class="btn-icon" id="btnToggleAudio" title="Ativar/Desativar Sons" aria-label="Áudio">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
         </svg>
       </button>
     </div>
@@ -80,17 +91,21 @@
 
   <!-- Main Viewport Layout -->
   <main class="main-layout" id="mainLayout">
-    
+
     <!-- Top (Mobile) / Left (Desktop): Clean Diorama Stage -->
     <section class="diorama-stage-section" aria-label="Maquete Isométrica da Planta de Beneficiamento">
       <div class="diorama-frame" id="dioramaFrame">
-        
+
         <!-- Crossfading Diorama Layers (Zero clutter over the image) -->
         <div class="diorama-screen" id="dioramaScreen">
-          <img src="assets/images/diorama_base.jpg" alt="Maquete Isométrica Base" class="diorama-layer layer-base" id="imgBase">
-          <img src="assets/images/diorama_situacao_1.jpg" alt="Situação 1 - Gestão Hídrica" class="diorama-layer layer-scenario active" id="imgScenario1" data-scenario="1">
-          <img src="assets/images/diorama_situacao_2.jpg" alt="Situação 2 - Economia Circular" class="diorama-layer layer-scenario" id="imgScenario2" data-scenario="2">
-          <img src="assets/images/diorama_situacao_3.jpg" alt="Situação 3 - Mineração 4.0" class="diorama-layer layer-scenario" id="imgScenario3" data-scenario="3">
+          <img src="assets/images/diorama_base.jpg" alt="Maquete Isométrica Base" class="diorama-layer layer-base"
+            id="imgBase">
+          <img src="assets/images/diorama_situacao_1.jpg" alt="Situação 1 - Gestão Hídrica"
+            class="diorama-layer layer-scenario active" id="imgScenario1" data-scenario="1">
+          <img src="assets/images/diorama_situacao_2.jpg" alt="Situação 2 - Economia Circular"
+            class="diorama-layer layer-scenario" id="imgScenario2" data-scenario="2">
+          <img src="assets/images/diorama_situacao_3.jpg" alt="Situação 3 - Mineração 4.0"
+            class="diorama-layer layer-scenario" id="imgScenario3" data-scenario="3">
 
           <!-- Clean Hotspot Beacons Layer -->
           <div class="hotspots-layer" id="hotspotsLayer">
@@ -116,18 +131,22 @@
           <span class="spotlight-status">EM DESTAQUE</span>
         </div>
         <h3 class="spotlight-title" id="spotlightTitle">Clarificação & Floculação</h3>
-        <p class="spotlight-summary" id="spotlightSummary">Tanques decantadores aceleram a sedimentação dos finos de rocha com dosagem controlada de polímeros.</p>
-        
+        <p class="spotlight-summary" id="spotlightSummary">Tanques decantadores aceleram a sedimentação dos finos de
+          rocha com dosagem controlada de polímeros.</p>
+
         <!-- ROI / Executive Rationale for this point -->
         <div class="spotlight-roi-box">
           <span class="roi-label">GANHO ESTRATÉGICO / INVESTIMENTO:</span>
-          <span class="roi-text" id="spotlightRoi">Elimina descarte em rio e reduz captação externa em 82%, gerando economia operacional direta de água potável.</span>
+          <span class="roi-text" id="spotlightRoi">Elimina descarte em rio e reduz captação externa em 82%, gerando
+            economia operacional direta de água potável.</span>
         </div>
 
         <div class="spotlight-actions">
           <button class="btn-inspect-deep" id="btnOpenDeepInspect">
             <span>Ver Ficha Técnica & Simulação</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </button>
         </div>
       </div>
@@ -135,7 +154,7 @@
 
     <!-- Bottom (Mobile) / Right (Desktop): Executive & Educational Content Panel -->
     <aside class="content-panel" id="contentPanel">
-      
+
       <!-- Scenario Thesis & Executive Summary -->
       <div class="scenario-summary-card">
         <div class="summary-meta">
@@ -143,7 +162,8 @@
           <span class="meta-kpi-highlight" id="scenarioKpiHighlight">94.2% REUSO</span>
         </div>
         <h2 class="summary-title" id="scenarioTitle">Gestão Hídrica & Recirculação</h2>
-        <p class="summary-lead" id="scenarioLead">Eficiência hídrica com taxa de recirculação superior a 90%, eliminando descarga de efluentes no Rio Itapemirim e reduzindo custos de captação.</p>
+        <p class="summary-lead" id="scenarioLead">Eficiência hídrica com taxa de recirculação superior a 90%, eliminando
+          descarga de efluentes no Rio Itapemirim e reduzindo custos de captação.</p>
       </div>
 
       <!-- Executive Decision: Cost vs Investment Callout -->
@@ -208,14 +228,17 @@
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
     <div class="drawer-panel">
       <div class="drawer-drag-pill" aria-hidden="true"></div>
-      
+
       <div class="drawer-header">
         <div>
           <span class="drawer-code" id="drawerCode">01.1</span>
           <h3 class="drawer-title" id="drawerTitle">Clarificação & Floculação</h3>
         </div>
         <button class="drawer-close" id="btnCloseDrawer" aria-label="Fechar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
 
@@ -240,14 +263,17 @@
 
         <!-- Compliance & Regulatory -->
         <div class="drawer-regulatory">
-          <strong>Enquadramento Normativo:</strong> <span id="drawerRegulatoryText">Conformidade com a legislação aplicável.</span>
+          <strong>Enquadramento Normativo:</strong> <span id="drawerRegulatoryText">Conformidade com a legislação
+            aplicável.</span>
         </div>
       </div>
 
       <div class="drawer-footer">
         <button class="btn-next-point" id="btnNextPoint">
           Próximo Ponto
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </button>
       </div>
     </div>
@@ -261,10 +287,14 @@
         <div>
           <span class="modal-tag">PITCH PARA DIRETORIA & CONSELHO EXECUTIVO</span>
           <h2>A Mineração Verde como Investimento Estratégico</h2>
-          <p class="modal-sub">Como converter passivos ambientais em receita operacional e mitigação de risco no APL de Cachoeiro de Itapemirim</p>
+          <p class="modal-sub">Como converter passivos ambientais em receita operacional e mitigação de risco no APL de
+            Cachoeiro de Itapemirim</p>
         </div>
         <button class="modal-close" id="btnCloseExecutive" aria-label="Fechar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
 
@@ -273,21 +303,29 @@
           <div class="pitch-card">
             <div class="pitch-badge">01. GESTÃO HÍDRICA</div>
             <h3>De Risco Hídrico a Eficiência de Custos</h3>
-            <p>O beneficiamento de rochas consome altos volumes de água. A instalação de decantadores e filtros-prensa automatizados reduz em <strong>82% a captação externa</strong>, garantindo mais de <strong>R$ 580 mil/ano de economia direta</strong> em outorgas e energia de bombeamento, além de blindar a empresa contra embargos da AGERH/IEMA em épocas de estiagem.</p>
+            <p>O beneficiamento de rochas consome altos volumes de água. A instalação de decantadores e filtros-prensa
+              automatizados reduz em <strong>82% a captação externa</strong>, garantindo mais de <strong>R$ 580 mil/ano
+                de economia direta</strong> em outorgas e energia de bombeamento, além de blindar a empresa contra
+              embargos da AGERH/IEMA em épocas de estiagem.</p>
             <div class="pitch-highlight">Payback Estimado: 14 a 18 meses</div>
           </div>
 
           <div class="pitch-card">
             <div class="pitch-badge">02. ECONOMIA CIRCULAR</div>
             <h3>De Custo de Descarte a Nova Linha de Receita</h3>
-            <p>Em vez de gastar milhões na manutenção de bacias de decantação que oferecem risco de vazamento, a lama é desidratada (*dry stacking*) e incorporada com aparas na fabricação de <strong>blocos intertravados (pavers NBR 9781)</strong> e agregados certificados (CONAMA 307). O resíduo vira produto vendido para obras públicas e privadas.</p>
+            <p>Em vez de gastar milhões na manutenção de bacias de decantação que oferecem risco de vazamento, a lama é
+              desidratada (*dry stacking*) e incorporada com aparas na fabricação de <strong>blocos intertravados
+                (pavers NBR 9781)</strong> e agregados certificados (CONAMA 307). O resíduo vira produto vendido para
+              obras públicas e privadas.</p>
             <div class="pitch-highlight">Margem Bruta de Pavers: 32% a 38%</div>
           </div>
 
           <div class="pitch-card">
             <div class="pitch-badge">03. MINERAÇÃO 4.0 & SLO</div>
             <h3>Da Vulnerabilidade Jurídica à Licença Social</h3>
-            <p>Com sensoriamento IoT contínuo (poeira e ruído NRs 15 e 22), dados em nuvem auditáveis e totem de transparência para a comunidade de Cachoeiro, a empresa elimina conflitos vicinais, previne multas e garante renovação automática de licenças com IEMA e ANM.</p>
+            <p>Com sensoriamento IoT contínuo (poeira e ruído NRs 15 e 22), dados em nuvem auditáveis e totem de
+              transparência para a comunidade de Cachoeiro, a empresa elimina conflitos vicinais, previne multas e
+              garante renovação automática de licenças com IEMA e ANM.</p>
             <div class="pitch-highlight">Risco de Interrupção Operacional: Reduzido a Zero</div>
           </div>
         </div>
@@ -303,21 +341,29 @@
         <div>
           <span class="modal-tag">ESTUDO TÉCNICO DE CONCLUSÃO DE PÓS-GRADUAÇÃO</span>
           <h2>Proposta Técnica de Mineração Sustentável (5 Eixos ABNT)</h2>
-          <p class="modal-sub">Trabalho estruturado conforme critérios da disciplina de Indústria 4.0 & Mineração Verde</p>
+          <p class="modal-sub">Trabalho estruturado conforme critérios da disciplina de Indústria 4.0 & Mineração 4.0
+          </p>
         </div>
         <div class="modal-header-actions">
           <button class="btn-print" id="btnPrintDossier" title="Imprimir ou Salvar em PDF">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9" />
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+              <rect x="6" y="14" width="12" height="8" />
+            </svg>
             Imprimir Dossiê
           </button>
           <button class="modal-close" id="btnCloseDossier" aria-label="Fechar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
           </button>
         </div>
       </div>
 
       <div class="modal-content">
-        
+
         <!-- Eixo 1 -->
         <article class="eixo-section">
           <div class="eixo-header">
@@ -325,11 +371,18 @@
             <h3>Diagnóstico Ambiental e Riscos da Operação</h3>
           </div>
           <p>
-            O Arranjo Produtivo Local (APL) de rochas ornamentais de Cachoeiro de Itapemirim (ES) responde pela maior concentração de teares de beneficiamento de mármore e granito da América Latina. O diagnóstico de uma planta convencional revela dois gargalos críticos:
+            O Arranjo Produtivo Local (APL) de rochas ornamentais de Cachoeiro de Itapemirim (ES) responde pela maior
+            concentração de teares de beneficiamento de mármore e granito da América Latina. O diagnóstico de uma planta
+            convencional revela dois gargalos críticos:
           </p>
           <ul class="eixo-list">
-            <li><strong>Gestão de Rejeitos (Lamas Abrasivas):</strong> Geração de cerca de 48 toneladas diárias de polpa com finos de corte. No modelo tradicional, a disposição em bacias a céu aberto apresenta riscos de transbordamento pluvial, infiltração em aquíferos e passivo de área ocupada.</li>
-            <li><strong>Uso Intensivo de Água:</strong> O resfriamento de teares multifio consome volumes expressivos (140 m³/h). A ausência de circuito fechado com alta eficiência obriga captações elevadas, vulneráveis a restrições de outorga pelo IEMA/AGERH em estiagens e risco de descarte com sólidos suspensos na calha do Rio Itapemirim.</li>
+            <li><strong>Gestão de Rejeitos (Lamas Abrasivas):</strong> Geração de cerca de 48 toneladas diárias de polpa
+              com finos de corte. No modelo tradicional, a disposição em bacias a céu aberto apresenta riscos de
+              transbordamento pluvial, infiltração em aquíferos e passivo de área ocupada.</li>
+            <li><strong>Uso Intensivo de Água:</strong> O resfriamento de teares multifio consome volumes expressivos
+              (140 m³/h). A ausência de circuito fechado com alta eficiência obriga captações elevadas, vulneráveis a
+              restrições de outorga pelo IEMA/AGERH em estiagens e risco de descarte com sólidos suspensos na calha do
+              Rio Itapemirim.</li>
           </ul>
         </article>
 
@@ -342,15 +395,19 @@
           <div class="eixo-grid">
             <div class="eixo-card">
               <h4>Circuito Fechado de Clarificação e Filtros-Prensa</h4>
-              <p>Decantadores lamelares acelerados por polieletrólitos aniônicos e filtros-prensa mecânicos a 16 bar. Recuperam água límpida com <strong>taxa de recirculação superior a 90%</strong> e geram tortas com menos de 18% de umidade residual.</p>
+              <p>Decantadores lamelares acelerados por polieletrólitos aniônicos e filtros-prensa mecânicos a 16 bar.
+                Recuperam água límpida com <strong>taxa de recirculação superior a 90%</strong> e geram tortas com menos
+                de 18% de umidade residual.</p>
             </div>
             <div class="eixo-card">
               <h4>Empilhamento a Seco (Dry Stacking)</h4>
-              <p>Disposição controlada e compactada em células de terraço drenadas, com classificação Classe II B (NBR 10004), <strong>eliminando definitivamente barragens de contenção</strong> e riscos de liquefação.</p>
+              <p>Disposição controlada e compactada em células de terraço drenadas, com classificação Classe II B (NBR
+                10004), <strong>eliminando definitivamente barragens de contenção</strong> e riscos de liquefação.</p>
             </div>
             <div class="eixo-card">
               <h4>Artefatos Cimentícios e Agregados Reciclados</h4>
-              <p>Incorporação de finos em traços de <strong>blocos intertravados (pavers NBR 9781)</strong> atingindo fck > 35 MPa, e britagem de aparas para substituição de areia e brita virgem (Resolução CONAMA 307).</p>
+              <p>Incorporação de finos em traços de <strong>blocos intertravados (pavers NBR 9781)</strong> atingindo
+                fck > 35 MPa, e britagem de aparas para substituição de areia e brita virgem (Resolução CONAMA 307).</p>
             </div>
           </div>
         </article>
@@ -425,9 +482,14 @@
             A sustentabilidade da proposta apoia-se em um modelo compartilhado de geração de valor local:
           </p>
           <ul class="eixo-list">
-            <li><strong>Parceria com Cooperativas Regionais:</strong> A fabricação de blocos intertravados e o manejo de agregados geram 38 postos formais de trabalho com incremento de 42% na renda média dos cooperados em Cachoeiro de Itapemirim.</li>
-            <li><strong>Capacitação com IFES e CETEM:</strong> Treinamento técnico contínuo em dosagem de misturas cimentícias e normas de segurança ocupacional.</li>
-            <li><strong>Governança Ativa e Transparência:</strong> Painel digital aberto em tempo real na portaria com canal de escuta para moradores, eliminando conflitos e consolidando a Licença Social para Operar (SLO).</li>
+            <li><strong>Parceria com Cooperativas Regionais:</strong> A fabricação de blocos intertravados e o manejo de
+              agregados geram 38 postos formais de trabalho com incremento de 42% na renda média dos cooperados em
+              Cachoeiro de Itapemirim.</li>
+            <li><strong>Capacitação com IFES e CETEM:</strong> Treinamento técnico contínuo em dosagem de misturas
+              cimentícias e normas de segurança ocupacional.</li>
+            <li><strong>Governança Ativa e Transparência:</strong> Painel digital aberto em tempo real na portaria com
+              canal de escuta para moradores, eliminando conflitos e consolidando a Licença Social para Operar (SLO).
+            </li>
           </ul>
         </article>
 
@@ -438,12 +500,20 @@
             <h3>Referências Bibliográficas e Normativas (Formato ABNT)</h3>
           </div>
           <div class="abnt-references">
-            <p>BRASIL MINERAL. <strong>Aproveitamento de rejeitos da Samarco alcança 45% em 2025</strong>. Brasil Mineral, 2025.</p>
-            <p>CASTRO, N. F. (Ed.). <strong>Tecnologia de rochas ornamentais: pesquisa, lavra e beneficiamento</strong>. Rio de Janeiro: CETEM/MCTI, 2013.</p>
-            <p>CONSELHO NACIONAL DO MEIO AMBIENTE (CONAMA). <strong>Resolução nº 307</strong>, de 5 de julho de 2002. Estabelece diretrizes, critérios e procedimentos para a gestão dos resíduos da construção civil. Brasília: Diário Oficial da União, 2002.</p>
-            <p>JANG, H.; TOPAL, E. <strong>Transformação da indústria de mineração e perspectivas futuras</strong>. Tecnologia de Mineração, 2020.</p>
-            <p>SANTANA, H. C. et al. <strong>Percepção de risco e sua influência na vida dos moradores diante da possibilidade de colapso de uma barragem de rejeitos de mineração</strong>. Cadernos de Saúde Pública, v. 41, 2025.</p>
-            <p>SERVIÇO GEOLÓGICO DO BRASIL (SGB). <strong>Economia circular na mineração busca reduzir geração de resíduos e estimular reuso de materiais descartados</strong>. Brasília: SGB, 2025.</p>
+            <p>BRASIL MINERAL. <strong>Aproveitamento de rejeitos da Samarco alcança 45% em 2025</strong>. Brasil
+              Mineral, 2025.</p>
+            <p>CASTRO, N. F. (Ed.). <strong>Tecnologia de rochas ornamentais: pesquisa, lavra e beneficiamento</strong>.
+              Rio de Janeiro: CETEM/MCTI, 2013.</p>
+            <p>CONSELHO NACIONAL DO MEIO AMBIENTE (CONAMA). <strong>Resolução nº 307</strong>, de 5 de julho de 2002.
+              Estabelece diretrizes, critérios e procedimentos para a gestão dos resíduos da construção civil. Brasília:
+              Diário Oficial da União, 2002.</p>
+            <p>JANG, H.; TOPAL, E. <strong>Transformação da indústria de mineração e perspectivas futuras</strong>.
+              Tecnologia de Mineração, 2020.</p>
+            <p>SANTANA, H. C. et al. <strong>Percepção de risco e sua influência na vida dos moradores diante da
+                possibilidade de colapso de uma barragem de rejeitos de mineração</strong>. Cadernos de Saúde Pública,
+              v. 41, 2025.</p>
+            <p>SERVIÇO GEOLÓGICO DO BRASIL (SGB). <strong>Economia circular na mineração busca reduzir geração de
+                resíduos e estimular reuso de materiais descartados</strong>. Brasília: SGB, 2025.</p>
           </div>
         </article>
 
@@ -454,4 +524,5 @@
   <!-- Ambient Audio & Logic -->
   <script src="app.js"></script>
 </body>
+
 </html>
