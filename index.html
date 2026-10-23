@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco-Mineração 4.0 & Economia Circular | APL de Rochas Ornamentais</title>
+  <meta name="description" content="Trabalho de Conclusão de Pós-Graduação: Maquete interativa e estudo de viabilidade para aproveitamento de resíduos minerais, recirculação hídrica e mineração 4.0 no APL de Cachoeiro de Itapemirim (ES).">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-diorama">
+
+  <!-- Top Navigation & Header -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-left">
+      <div class="project-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">PÓS-GRADUAÇÃO EM INDÚSTRIA 4.0 & MINERAÇÃO SUSTENTÁVEL</span>
+      </div>
+      <h1 class="project-title">
+        Eco-Mineração 4.0 <span class="title-sub">| APL de Cachoeiro de Itapemirim (ES)</span>
+      </h1>
+    </div>
+
+    <!-- Center Navigation Tabs (Planton Style) -->
+    <nav class="scenario-nav" aria-label="Seleção de Cenários">
+      <button class="nav-tab active" data-scenario="1" id="tabScenario1">
+        <span class="tab-num">01</span>
+        <span class="tab-label">Gestão Hídrica</span>
+      </button>
+      <button class="nav-tab" data-scenario="2" id="tabScenario2">
+        <span class="tab-num">02</span>
+        <span class="tab-label">Economia Circular</span>
+      </button>
+      <button class="nav-tab" data-scenario="3" id="tabScenario3">
+        <span class="tab-num">03</span>
+        <span class="tab-label">Mineração 4.0 & SLO</span>
+      </button>
+    </nav>
+
+    <!-- Top Right Controls -->
+    <div class="header-actions">
+      <button class="btn-action" id="btnToggleAudio" title="Ativar/Desativar Efeitos Sonoros" aria-label="Efeitos Sonoros">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" class="sound-wave"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" class="sound-wave"/>
+        </svg>
+        <span class="btn-text">Áudio FX</span>
+      </button>
+
+      <button class="btn-action" id="btnOpenDossier" title="Ver Dossiê Técnico Completo">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <span class="btn-text">Dossiê Técnico</span>
+      </button>
+
+      <button class="btn-action" id="btnToggleFullscreen" title="Modo Apresentação (Tela Cheia)">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Viewport (Planton Model: Lateral Storytelling + Isometric Maquette Stage) -->
+  <main class="planton-stage" id="plantonStage">
+    
+    <!-- Left Lateral Editorial Panel -->
+    <aside class="editorial-panel" id="editorialPanel">
+      <div class="editorial-card">
+        
+        <!-- Scenario Header & Metadata -->
+        <div class="scenario-meta">
+          <span class="scenario-index" id="scenarioNumber">01</span>
+          <div class="scenario-tag" id="scenarioTag">CIRCUITO FECHADO DE RECIRCULAÇÃO</div>
+        </div>
+
+        <h2 class="scenario-title" id="scenarioTitle">Gestão Hídrica & Recirculação</h2>
+        <h3 class="scenario-subtitle" id="scenarioSubtitle">Eficiência hídrica e descarga zero de efluentes.</h3>
+
+        <div class="quote-box">
+          <div class="quote-bar"></div>
+          <p class="scenario-copy" id="scenarioCopy">
+            "O beneficiamento sustentável de rochas apoia-se em sistemas de clarificação e desidratação mecânica que viabilizam taxas de recirculação hídrica superiores a 90%, eliminando o descarte em corpos hídricos e minimizando a captação de água nova."
+          </p>
+        </div>
+
+        <!-- Hotspots Interactive Directory -->
+        <div class="hotspots-section">
+          <div class="section-label-row">
+            <span class="section-label">PONTOS CRÍTICOS & HOTSPOTS</span>
+            <span class="section-hint">Clique para inspecionar</span>
+          </div>
+
+          <div class="hotspots-list" id="hotspotsList">
+            <!-- Dynamically populated or rendered according to current scenario -->
+          </div>
+        </div>
+
+        <!-- Real-Time ESG / Telemetry Mini-Deck -->
+        <div class="telemetry-deck">
+          <div class="deck-header">
+            <span class="deck-title">TELEMETRIA OPERACIONAL SCADA</span>
+            <span class="status-live"><span class="live-dot"></span> SINAL ATIVO</span>
+          </div>
+          <div class="kpi-grid" id="kpiGrid">
+            <!-- Dynamic KPIs per scenario -->
+          </div>
+        </div>
+
+        <!-- Quick Switcher Stepper -->
+        <div class="stepper-controls">
+          <button class="step-btn" id="prevStepBtn" aria-label="Cenário Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            Anterior
+          </button>
+          <div class="step-indicator">
+            <span class="step-dot active" data-step="1"></span>
+            <span class="step-dot" data-step="2"></span>
+            <span class="step-dot" data-step="3"></span>
+          </div>
+          <button class="step-btn" id="nextStepBtn" aria-label="Próximo Cenário">
+            Próximo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Center/Right: Isometric Diorama Maquette Stage -->
+    <section class="diorama-container" id="dioramaContainer" aria-label="Maquete Isométrica Interativa">
+      
+      <!-- Diorama Stage Wrapper with Perspective Anchor -->
+      <div class="diorama-stage-wrapper" id="stageWrapper">
+        
+        <!-- Base Scene Images (Cross-fading for seamless transition) -->
+        <div class="diorama-viewport" id="dioramaViewport">
+          <img src="assets/images/diorama_base.jpg" alt="Maquete Isométrica Base - Usina de Beneficiamento" class="diorama-img layer-base" id="imgBase">
+          <img src="assets/images/diorama_situacao_1.jpg" alt="Situação 1 - Gestão Hídrica" class="diorama-img layer-scenario active" id="imgScenario1" data-scenario="1">
+          <img src="assets/images/diorama_situacao_2.jpg" alt="Situação 2 - Economia Circular" class="diorama-img layer-scenario" id="imgScenario2" data-scenario="2">
+          <img src="assets/images/diorama_situacao_3.jpg" alt="Situação 3 - Mineração 4.0" class="diorama-img layer-scenario" id="imgScenario3" data-scenario="3">
+
+          <!-- Hotspots Overlay Layer -->
+          <div class="hotspots-overlay" id="hotspotsOverlay">
+            <!-- Dynamically populated hotspot pins -->
+          </div>
+        </div>
+
+        <!-- Floating Diorama Legend / Compass & Mode Switch -->
+        <div class="diorama-hud">
+          <div class="hud-chip">
+            <span class="hud-label">ENQUADRAMENTO ISOMÉTRICO FIXO</span>
+            <span class="hud-val">Escala 1:250 • Cachoeiro de Itapemirim (ES)</span>
+          </div>
+
+          <div class="hud-controls">
+            <button class="hud-btn" id="btnToggleLayers" title="Alternar visão base / camada de processos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                <polyline points="2 17 12 22 22 17"/>
+                <polyline points="2 12 12 17 22 12"/>
+              </svg>
+              <span>Camadas Ativas</span>
+            </button>
+            <button class="hud-btn" id="btnResetView" title="Centralizar Maquete">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="22" y1="12" x2="18" y2="12"/>
+                <line x1="6" y1="12" x2="2" y2="12"/>
+                <line x1="12" y1="6" x2="12" y2="2"/>
+                <line x1="12" y1="22" x2="12" y2="18"/>
+              </svg>
+              <span>Recarregar Foco</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Deep-Dive Hotspot Inspection Drawer / Modal -->
+  <div class="inspector-drawer" id="inspectorDrawer" aria-hidden="true">
+    <div class="inspector-backdrop" id="inspectorBackdrop"></div>
+    <div class="inspector-content">
+      <div class="drawer-handle-bar" aria-hidden="true"></div>
+      <div class="inspector-header">
+        <div class="inspector-badges">
+          <span class="inspector-num" id="inspectNum">01.1</span>
+          <span class="inspector-norma" id="inspectNorma">NBR 10004 / CONAMA</span>
+        </div>
+        <button class="inspector-close" id="btnCloseInspector" aria-label="Fechar Inspeção">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="inspector-body">
+        <h3 class="inspector-title" id="inspectTitle">Título do Hotspot</h3>
+        <p class="inspector-desc" id="inspectDesc">Descrição detalhada do elemento na maquete.</p>
+
+        <!-- Technical Deep-Dive Details -->
+        <div class="tech-spec-box">
+          <div class="tech-spec-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Especificação & Engenharia de Processo
+          </div>
+          <div class="tech-spec-grid" id="inspectSpecs">
+            <!-- Key-value technical parameters -->
+          </div>
+        </div>
+
+        <!-- Interactive Simulation / Micro-Widget -->
+        <div class="inspector-widget" id="inspectWidget">
+          <!-- Custom interactive slider or simulation per hotspot -->
+        </div>
+
+        <!-- Academic & Regulatory Footnote -->
+        <div class="inspector-regulatory" id="inspectRegulatory">
+          <strong>Enquadramento Regulatório:</strong> <span id="inspectRegText">Conformidade e ensaios laboratoriais.</span>
+        </div>
+      </div>
+
+      <div class="inspector-footer">
+        <button class="btn-primary" id="btnNextHotspot">
+          Próximo Ponto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technical Proposal Dossier Modal (Academic Coursework View) -->
+  <div class="dossier-modal" id="dossierModal" aria-hidden="true">
+    <div class="dossier-backdrop" id="dossierBackdrop"></div>
+    <div class="dossier-dialog">
+      <div class="dossier-header">
+        <div class="dossier-header-title">
+          <span class="dossier-tag">ESTUDO DE VIABILIDADE TÉCNICA E AMBIENTAL</span>
+          <h2>Proposta Técnica de Mineração Sustentável e Economia Circular</h2>
+          <p class="dossier-sub">Arranjo Produtivo Local (APL) de Rochas Ornamentais de Cachoeiro de Itapemirim (ES) — Pós-Graduação</p>
+        </div>
+        <div class="dossier-actions">
+          <button class="btn-action" id="btnPrintDossier" title="Imprimir / Salvar em PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Imprimir Dossiê
+          </button>
+          <button class="inspector-close" id="btnCloseDossier" aria-label="Fechar Dossiê">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="dossier-content">
+        
+        <!-- Summary Box -->
+        <section class="dossier-section">
+          <h3>1. Sumário Executivo e Premissa da Investigação</h3>
+          <p>
+            A premissa deste estudo estrutura-se como uma investigação de viabilidade técnica, ambiental e econômica sobre a adoção de princípios de economia circular, mineração verde e produção mais limpa no Arranjo Produtivo Local (APL) de rochas ornamentais de Cachoeiro de Itapemirim (ES).
+          </p>
+          <p>
+            A proposta avalia rotas tecnológicas para transformar resíduos minerais (lamas de corte de teares multifio e fragmentos de rocha) em insumos secundários nobres, garantindo simultaneamente taxas de recirculação hídrica acima de 90% e eliminando a dependência de bacias de decantação a céu aberto com risco de percolação ou rompimento.
+          </p>
+        </section>
+
+        <!-- Technical Routes Table -->
+        <section class="dossier-section">
+          <h3>2. Proposta Tecnológica: Dimensionamento e Rotas de Experimentação</h3>
+          <div class="dossier-grid">
+            <div class="route-card">
+              <h4>2.1 Desidratação Mecânica e Circuito de Água</h4>
+              <p>Sistemas de clarificação lamelar acelerada com dosagem automatizada de floculantes poliméricos aniônicos. Prensagem mecânica de alta pressão (16 bar) para produção de tortas com menos de 18% de umidade residual e retorno de água límpida clarificada diretamente aos teares multifio diamantados.</p>
+              <div class="route-kpi">Meta Preliminar: &gt; 90% de Recirculação</div>
+            </div>
+            <div class="route-card">
+              <h4>2.2 Empilhamento a Seco (Dry Stacking)</h4>
+              <p>Substituição de barragens e bacias convencionais de retenção de polpa úmida por células de aterro drenado e compactado. Material inerte classe II B (NBR 10004), estocagem em terraços com drenagem pluvial perimétrica e controle rigoroso de percolados.</p>
+              <div class="route-kpi">Risco de Liquefação: Nulo</div>
+            </div>
+            <div class="route-card">
+              <h4>2.3 Incorporação em Artefatos Cimentícios</h4>
+              <p>Aproveitamento da fração fina (pó de rocha/filer calcário e silicatado) e britagem de aparas para confecção de blocos intertravados (pavers) para pavimentação urbana, blocos de alvenaria e tubos de drenagem, substituindo agregados naturais virgens.</p>
+              <div class="route-kpi">Conformidade: NBR 9781 &amp; CONAMA 307</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ESG Matrix Table -->
+        <section class="dossier-section">
+          <h3>3. Matriz ESG e Tecnologias da Indústria 4.0</h3>
+          <div class="table-responsive">
+            <table class="dossier-table">
+              <thead>
+                <tr>
+                  <th>Dimensão ESG</th>
+                  <th>Indicadores Mensuráveis (KPIs)</th>
+                  <th>Tecnologias de Suporte (Indústria 4.0)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Ambiental (E)</strong></td>
+                  <td>
+                    • Toneladas geradas, reaproveitadas e destinadas<br>
+                    • % Recirculação hídrica (&gt;90%) e captação de água nova<br>
+                    • Consumo energético por tonelada processada (kWh/t)
+                  </td>
+                  <td>
+                    • Sensores de energia IoT em quadros elétricos<br>
+                    • Sistema SCADA de balanço hídrico contínuo<br>
+                    • Sondas automáticas de pH e turbidez no canal de descarga
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Social (S)</strong></td>
+                  <td>
+                    • Índice de frequência/gravidade e exposição a particulados (NR-15 e NR-22)<br>
+                    • Renda média e postos de trabalho gerados em cooperativas locais<br>
+                    • Nível de percepção e aprovação da comunidade vizinha
+                  </td>
+                  <td>
+                    • Estações perimétricas autônomas de poeira e ruído<br>
+                    • Portal de transparência socioambiental (Metodologia PNUMA/APELL)<br>
+                    • Treinamento operacional em plataforma digital
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Governança (G)</strong></td>
+                  <td>
+                    • Conformidade com condicionantes do IEMA e ANM (100% no prazo)<br>
+                    • Custo ponderado de destinação final de resíduos (R$/t)<br>
+                    • Lotes de subprodutos com certificados e ensaios de conformidade
+                  </td>
+                  <td>
+                    • ERP/CMMS integrado de compliance ambiental<br>
+                    • Rastreabilidade por QR Code vinculada a laudos laboratoriais<br>
+                    • Auditoria digital e relatórios padronizados automatizados
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- SLO & Business Model -->
+        <section class="dossier-section">
+          <h3>4. Dimensão Social, Modelo de Negócios e Licença Social para Operar (SLO)</h3>
+          <p>
+            A inserção social da economia circular no APL de Cachoeiro de Itapemirim exige a estruturação rigorosa de um modelo de negócios viável para cooperativas e pequenas empresas locais. A viabilidade é fundamentada em:
+          </p>
+          <ul class="dossier-bullets">
+            <li><strong>Mapeamento de Demanda Pública e Privada:</strong> Parcerias com prefeituras municipais para fornecimento de pavers reciclados destinados a calçamento de vias vicinais e praças públicas.</li>
+            <li><strong>Assistência Técnica e Capacitação:</strong> Transferência de tecnologia de dosagem de traços cimentícios em parceria com o IFES e CETEM, garantindo resistências mecânicas superiores a 35 MPa.</li>
+            <li><strong>Governança Ativa e Transparência:</strong> Painel público aberto em tempo real com acesso direto para entidades comunitárias, sindicatos e órgãos reguladores, mitigando riscos de conflito socioambiental.</li>
+          </ul>
+        </section>
+
+        <!-- References -->
+        <section class="dossier-section">
+          <h3>5. Referências Bibliográficas e Normativas</h3>
+          <div class="references-list">
+            <p>• BRASIL MINERAL. Aproveitamento de rejeitos da Samarco alcança 45% em 2025. <em>Brasil Mineral</em>, 2025.</p>
+            <p>• CASTRO, N. F. (Ed.). <em>Tecnologia de rochas ornamentais: pesquisa, lavra e beneficiamento</em>. Rio de Janeiro: CETEM/MCTI, 2013.</p>
+            <p>• CONSELHO NACIONAL DO MEIO AMBIENTE (CONAMA). <em>Resolução nº 307</em>, de 5 de julho de 2002. Gestão dos resíduos da construção civil. Brasília, 2002.</p>
+            <p>• JANG, H.; TOPAL, E. Transformação da indústria de mineração e perspectivas futuras. <em>Tecnologia de Mineração</em>, 2020.</p>
+            <p>• SANTANA, H. C. et al. Percepção de risco e sua influência na vida dos moradores diante da possibilidade de colapso de uma barragem. <em>Cadernos de Saúde Pública</em>, 2025.</p>
+            <p>• SERVIÇO GEOLÓGICO DO BRASIL (SGB). Economia circular na mineração busca reduzir geração de resíduos. Brasília: SGB, 2025.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Sound Generator (Web Audio API) -->
+  <script src="app.js"></script>
+</body>
+</html>
