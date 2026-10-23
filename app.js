@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Gestão Hídrica & Recirculação",
       kpiHighlight: "94.2% REUSO",
       lead: "Eficiência hídrica com taxa de recirculação superior a 90%, eliminando descarga de efluentes no Rio Itapemirim e reduzindo custos de captação.",
-      accent: "#00E5FF",
-      accentGlow: "rgba(0, 229, 255, 0.35)",
+      accent: "#3898A8",
+      accentGlow: "rgba(56, 152, 168, 0.28)",
       costVsInvest: {
         costs: [
           "Alto custo mensal com outorga e compra de água de reposição",
@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Economia Circular & Subprodutos",
       kpiHighlight: "PASSIVO ➔ ATIVO",
       lead: "Transformação de fragmentos de rocha e lamas desidratadas em agregados reciclados e blocos cimentícios certificados, extinguindo passivos de barragens.",
-      accent: "#FFB300",
-      accentGlow: "rgba(255, 179, 0, 0.35)",
+      accent: "#C5A059",
+      accentGlow: "rgba(197, 160, 89, 0.28)",
       costVsInvest: {
         costs: [
           "Gastos anuais contínuos com dragagem e contenção de bacias de lamas",
@@ -210,8 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
       title: "Mineração 4.0 & Licença Social",
       kpiHighlight: "IOT & GOVERNANÇA",
       lead: "Integração de sensoriamento contínuo em perímetro fabril com transparência comunitária, compliance ambiental e cooperativismo.",
-      accent: "#00E676",
-      accentGlow: "rgba(0, 230, 118, 0.35)",
+      accent: "#3B8A6E",
+      accentGlow: "rgba(59, 138, 110, 0.28)",
       costVsInvest: {
         costs: [
           "Conflitos vicinais recorrentes com a comunidade vizinha por ruído e poeira",
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   let currentScenarioId = 1;
   let activeHotspotIndex = 0;
-  let isAudioEnabled = false;
+  let isAudioEnabled = true; // Audio ON by default as requested
 
   // Tabs & Nav
   const navTabs = document.querySelectorAll('.nav-tab');
@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnToggleAudio = document.getElementById('btnToggleAudio');
 
   // =========================================================================
-  // 3. SOUND SYNTHESIZER (Minimal & Crisp)
+  // 3. SOUND SYNTHESIZER (Refined Acoustic Mineral Tone)
   // =========================================================================
   let audioCtx = null;
 
@@ -392,6 +392,15 @@ document.addEventListener('DOMContentLoaded', () => {
       audioCtx.resume();
     }
   }
+
+  // Gracefully unlock audio on first interaction to comply with browser policies
+  const unlockAudio = () => {
+    initAudio();
+    document.removeEventListener('click', unlockAudio);
+    document.removeEventListener('touchstart', unlockAudio);
+  };
+  document.addEventListener('click', unlockAudio);
+  document.addEventListener('touchstart', unlockAudio);
 
   function playUiSound(type = 'click') {
     if (!isAudioEnabled) return;
@@ -406,20 +415,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (type === 'click') {
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, now);
-      osc.frequency.exponentialRampToValueAtTime(400, now + 0.06);
-      gain.gain.setValueAtTime(0.06, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+      osc.frequency.setValueAtTime(920, now);
+      osc.frequency.exponentialRampToValueAtTime(520, now + 0.05);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
       osc.start(now);
-      osc.stop(now + 0.06);
+      osc.stop(now + 0.05);
     } else if (type === 'switch') {
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(320, now);
-      osc.frequency.exponentialRampToValueAtTime(640, now + 0.12);
+      osc.frequency.setValueAtTime(260, now);
+      osc.frequency.exponentialRampToValueAtTime(540, now + 0.14);
       gain.gain.setValueAtTime(0.07, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
       osc.start(now);
-      osc.stop(now + 0.16);
+      osc.stop(now + 0.18);
     }
   }
 
