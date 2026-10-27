@@ -109,27 +109,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     2: {
       number: "02",
-      tag: "ECONOMIA CIRCULAR & VALORIZAÇÃO",
+      tag: "ECONOMIA CIRCULAR & 3 ROTAS DE VALORAÇÃO",
       title: "Economia Circular & Subprodutos",
-      kpiHighlight: "PASSIVO ➔ ATIVO",
-      lead: "Transformação de fragmentos de rocha e lamas desidratadas em agregados reciclados e blocos cimentícios certificados, extinguindo passivos de barragens.",
+      kpiHighlight: "3 ROTAS DE VALORAÇÃO",
+      lead: "Valoração econômica por três rotas industriais (Cerâmica Vermelha, Agregados CONAMA 307 e Fíler Nobre) e empilhamento a seco, extinguindo passivos de barragens no APL.",
       accent: "#C5A059",
       accentGlow: "rgba(197, 160, 89, 0.28)",
       costVsInvest: {
         costs: [
           "Gastos anuais contínuos com dragagem e contenção de bacias de lamas",
-          "Descarte não aproveitado de cascalhos e aparas de chapas quebradas",
-          "Passivo acumulado no balanço patrimonial da empresa mineral"
+          "Descarte não aproveitado de cascalhos e finos de serragem em aterros",
+          "Passivo ambiental acumulado no balanço patrimonial da empresa mineral"
         ],
         investments: [
-          "Criação de nova linha de receita comercial com pavers (NBR 9781)",
-          "Substituição de brita e areia natural virgem em pavimentações locais",
-          "Extinção permanente do risco de liquefação e barragens de rejeito"
+          "Rota A: Cerâmica Vermelha com Payback de 14 meses (economia R$ 28/t)",
+          "Rota B: Agregados e Pavers CONAMA 307 com Payback de 18 meses (R$ 45/t)",
+          "Rota C: Fíler Nobre com alta agregação (+R$ 110/t de margem líquida)"
         ]
       },
       kpis: [
-        { val: "48.5 t/d", lbl: "Resíduo Valorizado" },
-        { val: "2.400 un", lbl: "Pavers NBR / Turno" },
+        { val: "2.000 t/m", lbl: "Capacidade Base (v5)" },
+        { val: "R$ 165/t", lbl: "Pico de Valoração (Rota C)" },
         { val: "0 m³", lbl: "Volume em Barragens" }
       ],
       hotspots: [
@@ -137,69 +137,86 @@ document.addEventListener('DOMContentLoaded', () => {
           id: "h2_1",
           code: "02.1",
           title: "Empilhamento a Seco (Dry Stacking)",
-          summary: "Disposição controlada e compactada de tortas de filtro-prensa em pilhas drenadas e estáveis.",
-          roi: "Elimina de forma permanente custos de barragens e bacias, liberando espaço útil na fábrica e zerando risco geotécnico.",
+          summary: "Disposição controlada e compactada de tortas desidratadas de filtro-prensa (<15% umidade) em pilhas estáveis.",
+          roi: "Extinção permanente de bacias e barragens de lamas abrasivas, zerando risco de liquefação e liberando área útil.",
           coords: { top: "14%", left: "75%" },
           norma: "NBR 10004 (Classe II B) / IEMA",
           specs: [
             { label: "Fator de Segurança (FS)", val: "1.85 (Estável)" },
-            { label: "Umidade Residual", val: "< 18%" },
+            { label: "Umidade da Torta", val: "< 15.0%" },
             { label: "Ângulo de Atrito", val: "34°" },
-            { label: "Risco de Liquefação", val: "NULO" }
+            { label: "Risco Geotécnico", val: "NULO" }
           ],
           widgetType: "stacking_slider",
-          regText: "Atende a todas as diretrizes da ANM e IEMA para extinção de barragens de mineração no Espírito Santo."
+          regText: "Atende integralmente às diretrizes da ANM e IEMA para extinção definitiva de barragens no Espírito Santo."
         },
         {
           id: "h2_2",
           code: "02.2",
-          title: "Fábrica de Artefatos Cimentícios",
-          summary: "Linha de prensagem que incorpora finos de rocha e mármore em blocos intertravados e pavers certificados.",
-          roi: "Converte o pó de corte em produto de alta margem comercial (35 MPa) para pavimentação de vias públicas e pátios industriais.",
+          title: "Rota A: Incorporação em Cerâmica Vermelha",
+          summary: "Substituição de 10% a 20% da argila por pó de granito/mármore de multifio na fabricação de tijolos, blocos e telhas.",
+          roi: "Menor investimento de adaptação (CAPEX R$ 180k) e payback recorde de 14 meses com economia térmica na queima.",
           coords: { top: "40%", left: "88%" },
-          norma: "ABNT NBR 9781 / NBR 6136",
+          norma: "ABNT NBR 10004 (Inerte) / Cerâmica",
           specs: [
-            { label: "Resistência (fck)", val: "38.5 MPa (Tráfego Pesado)" },
-            { label: "Substituição de Areia", val: "30% (Finos de Rocha)" },
-            { label: "Absorção de Água", val: "4.6% (Limite < 6%)" },
-            { label: "Capacidade Produtiva", val: "2.400 pavers/turno" }
+            { label: "CAPEX Estimado", val: "R$ 180.000" },
+            { label: "OPEX Operacional", val: "R$ 18,50 / ton" },
+            { label: "Economia Gerada", val: "R$ 28,00 / ton" },
+            { label: "Payback Estimado", val: "14 meses (Raio 45 km)" }
           ],
-          widgetType: "paver_mix_slider",
-          regText: "Conformidade integral com os laudos de lixiviação para uso em obras públicas municipais."
+          widgetType: "rota_a_calc",
+          regText: "O fino atua como fundente, reduzindo a temperatura dos fornos de 950°C para 900°C e economizando combustível."
         },
         {
           id: "h2_3",
           code: "02.3",
-          title: "Britagem de Agregados Reciclados",
-          summary: "Trituração mecânica de cascalhos e sobras de chapas para substituição de brita e areia natural virgem.",
-          roi: "Economia no calçamento de vias internas e fornecimento de agregado britado para concreteiras de Cachoeiro de Itapemirim.",
+          title: "Rota B: Agregados Reciclados & Pavers (CONAMA 307)",
+          summary: "Britagem mecânica de fragmentos de rocha e estabilização de finos para brita reciclada, sub-base e blocos intertravados.",
+          roi: "Venda de agregado reciclado a R$ 45/t frente a R$ 75/t da brita virgem, atendendo prefeituras com payback de 18 meses.",
           coords: { top: "28%", left: "63%" },
-          norma: "Resolução CONAMA 307 / NBR 15116",
+          norma: "Resolução CONAMA nº 307/2002 / NBR 9781",
           specs: [
-            { label: "Capacidade Britador", val: "15 t/h" },
-            { label: "Areia Poupada", val: "2.400 t/mês" },
-            { label: "Abrasão Los Angeles", val: "22% (Alta Dureza)" },
-            { label: "Produtos Gerados", val: "Brita 0, 1 e Pedrisco" }
+            { label: "CAPEX Estimado", val: "R$ 450.000" },
+            { label: "OPEX Operacional", val: "R$ 22,00 / ton" },
+            { label: "Preço de Venda", val: "R$ 45,00 / ton" },
+            { label: "Payback Estimado", val: "18 meses (Raio 35 km)" }
           ],
-          widgetType: "crusher_balance",
-          regText: "Enquadramento na Resolução CONAMA 307 para valorização de resíduos da construção e mineração."
+          widgetType: "rota_b_calc",
+          regText: "Enquadramento normativo na Resolução CONAMA 307/2002 e NBR 9781 (pavers com fck > 35 MPa)."
         },
         {
           id: "h2_4",
           code: "02.4",
-          title: "Rastreabilidade por QR Code / ERP",
-          summary: "Identificação digital por lote com ensaios de lixiviação (NBR 10004) e destinação final de agregados.",
-          roi: "Garante auditoria digital transparente para compras públicas sustentáveis e licitações de prefeituras.",
-          coords: { top: "74%", left: "54%" },
-          norma: "ISO 14001 / NBR 10004",
+          title: "Rota C: Fíler Nobre & Argamassas Ecoeficientes",
+          summary: "Secagem rápida, micronização e ensacamento do resíduo de multifio diamantado para fíler de alta pureza.",
+          roi: "Maior valor agregado regional (R$ 140 a R$ 190/t - média R$ 165/t) com margem líquida de +R$ 110/t e raio viável até 120 km.",
+          coords: { top: "52%", left: "42%" },
+          norma: "ABNT NBR 10004 / NBR 16697",
           specs: [
-            { label: "Lotes Rastreados", val: "100% em Banco Digital" },
-            { label: "Laudos Anexados", val: "PDF Criptografado" },
-            { label: "Origem do Resíduo", val: "Serraria / Multifio" },
-            { label: "Destinação Homologada", val: "Pavimentação Urbana" }
+            { label: "CAPEX Estimado", val: "R$ 920.000" },
+            { label: "OPEX Operacional", val: "R$ 55,00 / ton" },
+            { label: "Valor de Mercado", val: "R$ 165,00 / ton" },
+            { label: "Payback Estimado", val: "22 meses (Raio 120 km)" }
           ],
-          widgetType: "qrcode_scan",
-          regText: "Garantia de conformidade técnica e ambiental auditável sem risco de autuações fiscais."
+          widgetType: "rota_c_calc",
+          regText: "Matéria-prima nobre para indústrias de argamassa colante, tintas e polímeros no Espírito Santo e Rio de Janeiro."
+        },
+        {
+          id: "h2_5",
+          code: "02.5",
+          title: "Rastreabilidade Digital & UNS PMI 4.0",
+          summary: "Identificação digital por lote com ensaios de lixiviação e telemetria integrada à plataforma didática PMI 4.0.",
+          roi: "Comprovação digital auditável para compras públicas sustentáveis e governança em tempo real.",
+          coords: { top: "74%", left: "54%" },
+          norma: "Protocolo MQTT / ISA-95 / PMI 4.0",
+          specs: [
+            { label: "Plataforma Online", val: "pmi40.siteser.com.br" },
+            { label: "Barramento UNS", val: "MQTT / Sparkplug B" },
+            { label: "Certificação Lote", val: "100% Digital / QR Code" },
+            { label: "Conformidade", val: "Auditoria ANM / IEMA" }
+          ],
+          widgetType: "pmi40_uns",
+          regText: "Garantia de governança ambiental auditável simulada no protótipo desenvolvido por Everton Santos Rocha."
         }
       ]
     },
@@ -303,11 +320,91 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // =========================================================================
+  // TECHNOLOGICAL ROUTES DATA (Proposta Técnica v5 — Outubro/2026)
+  // =========================================================================
+  const technologicalRoutes = {
+    rota_a: {
+      key: "rota_a",
+      letter: "A",
+      code: "ROTA A",
+      name: "Cerâmica Vermelha",
+      fullName: "Incorporação em Cerâmica Vermelha e Revestimentos",
+      norma: "ABNT NBR 10004 (Classe II B / Inerte)",
+      logistics: "Raio Logístico: Até 45 km",
+      desc: "Substituição de 10% a 20% da massa argilosa por pó de granito/mármore de multifio na fabricação de tijolos, blocos cerâmicos e telhas. O fino mineral atua como fundente, reduzindo a temperatura de queima dos fornos de 950°C para 900°C e diminuindo o consumo de biomassa/gás.",
+      capex: 180000,
+      capexStr: "R$ 180.000",
+      capexSub: "Adaptação / Peneiramento",
+      opexPerTon: 18.50,
+      opexStr: "R$ 18,50 / ton",
+      opexSub: "Secagem / Dosagem",
+      receitaPerTon: 28.00,
+      receitaStr: "R$ 28,00 / ton",
+      marginPerTon: 9.50,
+      marginSub: "Margem Líq: +R$ 9,50/t",
+      paybackStr: "14 meses",
+      paybackSub: "Retorno Mais Rápido",
+      highlightText: "Rota A: +R$ 28,00 / ton"
+    },
+    rota_b: {
+      key: "rota_b",
+      letter: "B",
+      code: "ROTA B",
+      name: "Agregados CONAMA 307",
+      fullName: "Agregados Reciclados para Pavimentação e Concreto Urbano",
+      norma: "Resolução CONAMA nº 307/2002 / NBR 9781",
+      logistics: "Raio Logístico: Até 35 km",
+      desc: "Processamento de fragmentos rígidos de rocha e lama desidratada estabilizada com cimento para produção de brita reciclada, sub-base de pavimentação e calçamento (paver/meio-fio), em conformidade com as diretrizes da Resolução CONAMA nº 307/2002. Preço de venda a R$ 45/t frente a R$ 75/t da brita virgem.",
+      capex: 450000,
+      capexStr: "R$ 450.000",
+      capexSub: "Britador Móvel / Misturador",
+      opexPerTon: 22.00,
+      opexStr: "R$ 22,00 / ton",
+      opexSub: "Moagem / Prensagem Pavers",
+      receitaPerTon: 45.00,
+      receitaStr: "R$ 45,00 / ton",
+      marginPerTon: 23.00,
+      marginSub: "Margem Líq: +R$ 23,00/t",
+      paybackStr: "18 meses",
+      paybackSub: "Alta Demanda em Obras",
+      highlightText: "Rota B: +R$ 45,00 / ton"
+    },
+    rota_c: {
+      key: "rota_c",
+      letter: "C",
+      code: "ROTA C",
+      name: "Fíler & Argamassas",
+      fullName: "Cimentos Ecoeficientes, Argamassas e Fíler de Alta Pureza",
+      norma: "ABNT NBR 10004 / NBR 16697",
+      logistics: "Raio Logístico: Até 120 km",
+      desc: "Secagem rápida, micronização e acondicionamento de resíduo puro de multifio diamantado (Classe II B) para aplicação como fíler carbonático/silicoso em indústrias de argamassa colante, tintas e polímeros. Entrega a mais alta valorização regional (R$ 140 a R$ 190/t - média R$ 165/t).",
+      capex: 920000,
+      capexStr: "R$ 920.000",
+      capexSub: "Secagem Rápida & Moinho Fino",
+      opexPerTon: 55.00,
+      opexStr: "R$ 55,00 / ton",
+      opexSub: "Micronização / Ensacamento",
+      receitaPerTon: 165.00,
+      receitaStr: "R$ 165,00 / ton",
+      marginPerTon: 110.00,
+      marginSub: "Margem Líq: +R$ 110,00/t",
+      paybackStr: "22 meses",
+      paybackSub: "Maior Valor Agregado",
+      highlightText: "Rota C: +R$ 165,00 / ton"
+    }
+  };
+
+  // Formal Citation ABNT String (Everton Santos Rocha - IFES 2026)
+  const formalCitationString = `ROCHA, Everton Santos. Plano de Mineração Inteligente 4.0 (PMI 4.0): protótipo didático de governança e monitoramento de resíduos minerais em tempo real. Vitória: Instituto Federal do Espírito Santo (IFES), 2026. Disponível em: <https://pmi40.siteser.com.br/>. Acesso em: 27 out. 2026.`;
+
+  // =========================================================================
   // 2. STATE & DOM REFERENCES
   // =========================================================================
   let currentScenarioId = 1;
   let activeHotspotIndex = 0;
   let isAudioEnabled = true; // Audio ON by default as requested
+  let activeRouteKey = 'rota_a';
+  let activeVolume = 2000;
 
   // Tabs & Nav
   const navTabs = document.querySelectorAll('.nav-tab');
@@ -374,6 +471,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnOpenDossier = document.getElementById('btnOpenDossier');
   const btnCloseDossier = document.getElementById('btnCloseDossier');
   const btnPrintDossier = document.getElementById('btnPrintDossier');
+
+  // Author Modal Elements (Everton Santos Rocha - IFES)
+  const authorModal = document.getElementById('authorModal');
+  const authorBackdrop = document.getElementById('authorBackdrop');
+  const btnCloseAuthor = document.getElementById('btnCloseAuthor');
+  const btnOpenAuthorModalHeader = document.getElementById('btnOpenAuthorModalHeader');
+  const btnOpenAuthorModalFooter = document.getElementById('btnOpenAuthorModalFooter');
+  const btnCopyAuthorCitation = document.getElementById('btnCopyAuthorCitation');
+  const btnCopyFooterCitation = document.getElementById('btnCopyFooterCitation');
+  const copyAuthorCitationLabel = document.getElementById('copyAuthorCitationLabel');
+  const footerCopyLabel = document.getElementById('footerCopyLabel');
+  const citationToast = document.getElementById('citationToast');
+
+  // Route Valuation Card Elements
+  const routeTabBtns = document.querySelectorAll('.route-tab-btn');
+  const calcVolumeSlider = document.getElementById('calcVolumeSlider');
 
   // Audio Button
   const btnToggleAudio = document.getElementById('btnToggleAudio');
@@ -818,6 +931,97 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         break;
 
+      case 'rota_a_calc':
+        drawerWidgetContainer.innerHTML = `
+          <div class="widget-row">
+            <span class="w-label">Substituição de Argila por Pó de Granito/Mármore:</span>
+            <strong class="w-val" id="wClaySubVal">15%</strong>
+          </div>
+          <input type="range" class="w-slider" id="wClaySlider" min="5" max="25" step="1" value="15">
+          <div class="w-results" style="display:flex; flex-direction:column; gap:5px;">
+            <div>Temperatura do Forno: <strong id="wKilnTemp">912°C</strong> (Queda de fundente de 950°C para 900°C)</div>
+            <div>Economia de Combustível/Gás: <strong id="wFuelSave" style="color:var(--accent-amber)">-10.5%</strong></div>
+            <div>Economia Operacional Direta: <strong style="color:#00E676">R$ 28,00 / tonelada</strong> (Payback: 14 meses)</div>
+          </div>
+        `;
+        const wClaySlider = document.getElementById('wClaySlider');
+        if (wClaySlider) {
+          wClaySlider.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value);
+            document.getElementById('wClaySubVal').textContent = `${val}%`;
+            const temp = Math.round(950 - (val * 2.5));
+            const fuel = (val * 0.7).toFixed(1);
+            document.getElementById('wKilnTemp').textContent = `${temp}°C`;
+            document.getElementById('wFuelSave').textContent = `-${fuel}%`;
+          });
+        }
+        break;
+
+      case 'rota_b_calc':
+        drawerWidgetContainer.innerHTML = `
+          <div class="widget-row">
+            <span class="w-label">Volume de Agregados Reciclados (CONAMA 307):</span>
+            <strong class="w-val" id="wAggVol">2.000 t/mês</strong>
+          </div>
+          <input type="range" class="w-slider" id="wAggSlider" min="500" max="3500" step="250" value="2000">
+          <div class="w-results" style="display:flex; flex-direction:column; gap:5px;">
+            <div>Preço Agregado Reciclado: <strong>R$ 45,00 / ton</strong> (vs R$ 75/t brita virgem)</div>
+            <div>Receita Operacional Mensal: <strong id="wAggGross" style="color:var(--accent-amber)">R$ 90.000 / mês</strong></div>
+            <div>Resistência dos Pavers: <strong style="color:#00E676">fck > 38.5 MPa (NBR 9781)</strong></div>
+          </div>
+        `;
+        const wAggSlider = document.getElementById('wAggSlider');
+        if (wAggSlider) {
+          wAggSlider.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value);
+            document.getElementById('wAggVol').textContent = `${val.toLocaleString('pt-BR')} t/mês`;
+            const gross = val * 45;
+            document.getElementById('wAggGross').textContent = `R$ ${gross.toLocaleString('pt-BR')} / mês`;
+          });
+        }
+        break;
+
+      case 'rota_c_calc':
+        drawerWidgetContainer.innerHTML = `
+          <div class="widget-row">
+            <span class="w-label">Cotação do Fíler Nobre no Mercado Regional:</span>
+            <strong class="w-val" id="wFillerPrice">R$ 165,00 / ton</strong>
+          </div>
+          <input type="range" class="w-slider" id="wFillerSlider" min="140" max="190" step="5" value="165">
+          <div class="w-results" style="display:flex; flex-direction:column; gap:5px;">
+            <div>Custo Operacional de Moagem (OPEX): <strong>R$ 55,00 / ton</strong></div>
+            <div>Margem Líquida Unitária: <strong id="wFillerMargin" style="color:#00E676">+R$ 110,00 / ton</strong></div>
+            <div>Raio Logístico Viável: <strong style="color:var(--accent-cyan)">Até 120 km (ES / RJ)</strong></div>
+          </div>
+        `;
+        const wFillerSlider = document.getElementById('wFillerSlider');
+        if (wFillerSlider) {
+          wFillerSlider.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value);
+            document.getElementById('wFillerPrice').textContent = `R$ ${val.toFixed(2)} / ton`;
+            const margin = val - 55;
+            document.getElementById('wFillerMargin').textContent = `+R$ ${margin.toFixed(2)} / ton`;
+          });
+        }
+        break;
+
+      case 'pmi40_uns':
+        drawerWidgetContainer.innerHTML = `
+          <div class="widget-row">
+            <span class="w-label">Barramento Unificado UNS (MQTT / ISA-95):</span>
+            <strong class="w-val" style="color:#00E676">CONECTADO EM TEMPO REAL</strong>
+          </div>
+          <div class="w-results" style="display:flex; flex-direction:column; gap:6px; font-size:12px;">
+            <div>• Tópico UNS: <code>Mineradora/Cachoeiro/Serraria01/Multifio/Telemetria</code></div>
+            <div>• Balanço Hídrico & Resíduos: <strong>Transmitindo via WebSockets</strong></div>
+            <div>• Plataforma Protótipo: <strong>https://pmi40.siteser.com.br/</strong></div>
+          </div>
+          <a href="https://pmi40.siteser.com.br/" target="_blank" rel="noopener noreferrer" class="btn-inspect-deep" style="margin-top:10px; width:100%; justify-content:center; text-decoration:none;">
+            <span>Abrir Protótipo PMI 4.0 Online ↗</span>
+          </a>
+        `;
+        break;
+
       case 'compliance_radar':
         drawerWidgetContainer.innerHTML = `
           <div class="widget-row">
@@ -838,7 +1042,136 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 6. EVENT LISTENERS & MODALS
+  // 6. ROUTE VALUATION ENGINE & SIMULATOR (Maquete Eletrônica v5)
+  // =========================================================================
+  function updateRouteValuation(routeKey, volume) {
+    if (routeKey) activeRouteKey = routeKey;
+    if (volume !== undefined) activeVolume = volume;
+
+    const r = technologicalRoutes[activeRouteKey];
+    if (!r) return;
+
+    // Tabs
+    document.querySelectorAll('.route-tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-route') === activeRouteKey);
+    });
+
+    // Ladder steps
+    const ladderHighlightText = document.getElementById('ladderHighlightText');
+    if (ladderHighlightText) ladderHighlightText.textContent = r.highlightText;
+
+    const stepA = document.getElementById('ladderStepA');
+    const stepB = document.getElementById('ladderStepB');
+    const stepC = document.getElementById('ladderStepC');
+    if (stepA) stepA.classList.toggle('active', activeRouteKey === 'rota_a');
+    if (stepB) stepB.classList.toggle('active', activeRouteKey === 'rota_b');
+    if (stepC) stepC.classList.toggle('active', activeRouteKey === 'rota_c');
+
+    // Route Details
+    const routeCodeTag = document.getElementById('routeCodeTag');
+    const routeNormTag = document.getElementById('routeNormTag');
+    const routeLogisticsBadge = document.getElementById('routeLogisticsBadge');
+    const routeDetailTitle = document.getElementById('routeDetailTitle');
+    const routeDetailDesc = document.getElementById('routeDetailDesc');
+
+    if (routeCodeTag) routeCodeTag.textContent = r.code;
+    if (routeNormTag) routeNormTag.textContent = r.norma;
+    if (routeLogisticsBadge) routeLogisticsBadge.textContent = r.logistics;
+    if (routeDetailTitle) routeDetailTitle.textContent = r.fullName;
+    if (routeDetailDesc) routeDetailDesc.textContent = r.desc;
+
+    // KPIs
+    const kpiCapex = document.getElementById('kpiCapex');
+    const kpiOpex = document.getElementById('kpiOpex');
+    const kpiReceita = document.getElementById('kpiReceita');
+    const kpiMarginSub = document.getElementById('kpiMarginSub');
+    const kpiPayback = document.getElementById('kpiPayback');
+
+    if (kpiCapex) kpiCapex.textContent = r.capexStr;
+    if (kpiOpex) kpiOpex.textContent = r.opexStr;
+    if (kpiReceita) kpiReceita.textContent = r.receitaStr;
+    if (kpiMarginSub) kpiMarginSub.textContent = r.marginSub;
+    if (kpiPayback) kpiPayback.textContent = r.paybackStr;
+
+    // Calculator Results
+    const calcVolDisplay = document.getElementById('calcVolDisplay');
+    const resGross = document.getElementById('resGross');
+    const resOpex = document.getElementById('resOpex');
+    const resNetAnnual = document.getElementById('resNetAnnual');
+
+    const grossMonthly = activeVolume * r.receitaPerTon;
+    const opexMonthly = activeVolume * r.opexPerTon;
+    const netMonthly = grossMonthly - opexMonthly;
+    const netAnnual = netMonthly * 12;
+
+    if (calcVolDisplay) calcVolDisplay.textContent = `${activeVolume.toLocaleString('pt-BR')} toneladas/mês`;
+    if (resGross) resGross.textContent = `R$ ${grossMonthly.toLocaleString('pt-BR')} / mês`;
+    if (resOpex) resOpex.textContent = `R$ ${opexMonthly.toLocaleString('pt-BR')} / mês`;
+    if (resNetAnnual) resNetAnnual.textContent = `R$ ${netAnnual.toLocaleString('pt-BR')} / ano`;
+  }
+
+  // =========================================================================
+  // 7. AUTHOR MODAL & CITATION MANAGEMENT
+  // =========================================================================
+  function openAuthorModal() {
+    if (!authorModal) return;
+    authorModal.classList.add('active');
+    authorModal.setAttribute('aria-hidden', 'false');
+    playUiSound('switch');
+  }
+
+  function closeAuthorModal() {
+    if (!authorModal) return;
+    authorModal.classList.remove('active');
+    authorModal.setAttribute('aria-hidden', 'true');
+    playUiSound('click');
+  }
+
+  function copyFormalCitation(feedbackElem, defaultLabel = 'Copiar Citação ABNT') {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(formalCitationString).then(() => {
+        triggerCopyFeedback(feedbackElem, defaultLabel);
+      }).catch(() => {
+        fallbackCopyText(formalCitationString, feedbackElem, defaultLabel);
+      });
+    } else {
+      fallbackCopyText(formalCitationString, feedbackElem, defaultLabel);
+    }
+  }
+
+  function fallbackCopyText(text, feedbackElem, defaultLabel) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      triggerCopyFeedback(feedbackElem, defaultLabel);
+    } catch (e) {
+      console.warn('Erro ao copiar citação:', e);
+    }
+    document.body.removeChild(ta);
+  }
+
+  function triggerCopyFeedback(feedbackElem, defaultLabel) {
+    playUiSound('click');
+    if (citationToast) {
+      citationToast.classList.add('show');
+      setTimeout(() => citationToast.classList.remove('show'), 3000);
+    }
+    if (feedbackElem) {
+      const prev = feedbackElem.textContent;
+      feedbackElem.textContent = '✓ Citação Copiada!';
+      setTimeout(() => {
+        feedbackElem.textContent = defaultLabel || prev;
+      }, 2500);
+    }
+  }
+
+  // =========================================================================
+  // 8. EVENT LISTENERS & MODALS
   // =========================================================================
 
   // Nav Tab clicks
@@ -848,6 +1181,30 @@ document.addEventListener('DOMContentLoaded', () => {
       renderScenario(id);
     });
   });
+
+  // Route selector tabs in the diorama stage
+  routeTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const routeKey = btn.getAttribute('data-route');
+      updateRouteValuation(routeKey, activeVolume);
+      playUiSound('switch');
+
+      // If in Scenario 2, also sync active hotspot to corresponding route
+      if (currentScenarioId === 2) {
+        if (routeKey === 'rota_a') selectHotspot(1);
+        else if (routeKey === 'rota_b') selectHotspot(2);
+        else if (routeKey === 'rota_c') selectHotspot(3);
+      }
+    });
+  });
+
+  // Volume slider in routes valuation card
+  if (calcVolumeSlider) {
+    calcVolumeSlider.addEventListener('input', (e) => {
+      const vol = parseInt(e.target.value);
+      updateRouteValuation(activeRouteKey, vol);
+    });
+  }
 
   // Spotlight inspect deep button
   btnOpenDeepInspect.addEventListener('click', () => {
@@ -909,6 +1266,32 @@ document.addEventListener('DOMContentLoaded', () => {
     window.print();
   });
 
+  // Author & Prototype Modal Events (Everton Santos Rocha - IFES)
+  if (btnOpenAuthorModalHeader) {
+    btnOpenAuthorModalHeader.addEventListener('click', openAuthorModal);
+  }
+  if (btnOpenAuthorModalFooter) {
+    btnOpenAuthorModalFooter.addEventListener('click', openAuthorModal);
+  }
+  if (btnCloseAuthor) {
+    btnCloseAuthor.addEventListener('click', closeAuthorModal);
+  }
+  if (authorBackdrop) {
+    authorBackdrop.addEventListener('click', closeAuthorModal);
+  }
+
+  // Copy Citation buttons
+  if (btnCopyAuthorCitation) {
+    btnCopyAuthorCitation.addEventListener('click', () => {
+      copyFormalCitation(copyAuthorCitationLabel, 'Copiar Citação ABNT');
+    });
+  }
+  if (btnCopyFooterCitation) {
+    btnCopyFooterCitation.addEventListener('click', () => {
+      copyFormalCitation(footerCopyLabel, 'Copiar Citação ABNT');
+    });
+  }
+
   // Audio Toggle
   btnToggleAudio.addEventListener('click', () => {
     isAudioEnabled = !isAudioEnabled;
@@ -925,6 +1308,7 @@ document.addEventListener('DOMContentLoaded', () => {
       closeTechnicalDrawer();
       executiveModal.classList.remove('active');
       dossierModal.classList.remove('active');
+      closeAuthorModal();
     } else if (e.key === '1') {
       renderScenario(1);
     } else if (e.key === '2') {
@@ -936,6 +1320,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize
   renderScenario(1);
-  console.log('Eco-Mineração 4.0 Clean Engine initialized.');
+  updateRouteValuation('rota_a', 2000);
+  console.log('Eco-Mineração 4.0 Engine v5 initialized. Author: Everton Santos Rocha (IFES).');
 
 });

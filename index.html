@@ -32,16 +32,37 @@
     <div class="header-brand">
       <div class="brand-pill">
         <span class="status-indicator"></span>
-        <span class="brand-sub">PÓS-GRADUAÇÃO INDÚSTRIA 4.0 - Disciplina: MINERAÇÃO 4.0</span>
+        <span class="brand-sub">IFES — PÓS-GRADUAÇÃO EM INDÚSTRIA 4.0</span>
       </div>
       <h1 class="brand-title">
         Eco-Mineração 4.0 <span class="brand-location">Cachoeiro de Itapemirim (ES)</span>
       </h1>
+      <div class="header-author-tag">
+        <span class="author-prefix">Autoria do Protótipo:</span>
+        <button class="author-pill-btn" id="btnOpenAuthorModalHeader" title="Ver Informações do Autor e Referência Formal ABNT">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span>Everton Santos Rocha (IFES)</span>
+        </button>
+      </div>
     </div>
 
     <!-- Header Actions (Clean & Purposeful) -->
     <div class="header-actions">
-      <button class="btn-executive" id="btnOpenExecutive" title="Ver Análise de Investimento vs Custo">
+      <!-- Direct Link to Live Prototype PMI 4.0 -->
+      <a href="https://pmi40.siteser.com.br/" target="_blank" rel="noopener noreferrer" class="btn-prototype" title="Acessar o Protótipo Didático PMI 4.0 em Tempo Real (https://pmi40.siteser.com.br/)">
+        <span class="pulse-dot"></span>
+        <span class="btn-text">Protótipo PMI 4.0</span>
+        <svg class="icon-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <polyline points="15 3 21 3 21 9" />
+          <line x1="10" y1="14" x2="21" y2="3" />
+        </svg>
+      </a>
+
+      <button class="btn-executive" id="btnOpenExecutive" title="Ver Análise de Investimento vs Custo e Payback por Rota">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
           <polyline points="17 6 23 6 23 12" />
@@ -49,14 +70,14 @@
         <span>Visão Diretoria (ROI)</span>
       </button>
 
-      <button class="btn-dossier" id="btnOpenDossier" title="Ver Dossiê Acadêmico nos 5 Eixos ABNT">
+      <button class="btn-dossier" id="btnOpenDossier" title="Ver Proposta Técnica v5 nos 5 Eixos ABNT">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
           <polyline points="14 2 14 8 20 8" />
           <line x1="16" y1="13" x2="8" y2="13" />
           <line x1="16" y1="17" x2="8" y2="17" />
         </svg>
-        <span>Proposta Técnica (5 Eixos)</span>
+        <span>Proposta Técnica v5 (5 Eixos)</span>
       </button>
 
       <button class="btn-icon active" id="btnToggleAudio" title="Som Ativado por Padrão (Clique para Mudar)" aria-label="Áudio Ativado">
@@ -148,6 +169,146 @@
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
+        </div>
+      </div>
+
+      <!-- Interactive Routes Economic Valuation Card (Proposta Técnica v5 — Outubro/2026) -->
+      <div class="routes-valuation-card" id="routesValuationCard">
+        <div class="routes-card-header">
+          <div class="routes-card-title-group">
+            <span class="routes-tag">ESTIMATIVAS ECONÔMICAS POR ROTA TECNOLÓGICA (v5 — OUTUBRO/2026)</span>
+            <h3 class="routes-main-title">Valoração Crescente de Resíduos Minerais</h3>
+          </div>
+          <span class="routes-capacity-badge" title="Capacidade padrão calculada na Proposta Técnica v5">
+            Base: 2.000 t/mês
+          </span>
+        </div>
+
+        <p class="routes-lead-desc">
+          Avaliação comparativa de três rotas industriais viáveis no APL de Cachoeiro de Itapemirim, valorando finos desidratados de serrarias por economia circular com dados de mercado de Outubro de 2026.
+        </p>
+
+        <!-- Route Selector Buttons (Rota A, Rota B, Rota C) -->
+        <div class="routes-nav-tabs" role="tablist" aria-label="Rotas Tecnológicas de Valoração">
+          <button class="route-tab-btn active" data-route="rota_a" id="tabRouteA">
+            <span class="route-letter">A</span>
+            <div class="route-tab-info">
+              <span class="route-name">Cerâmica Vermelha</span>
+              <span class="route-submetric">Payback: 14 meses</span>
+            </div>
+            <span class="route-val-pill">R$ 28/t</span>
+          </button>
+
+          <button class="route-tab-btn" data-route="rota_b" id="tabRouteB">
+            <span class="route-letter">B</span>
+            <div class="route-tab-info">
+              <span class="route-name">Agregados CONAMA 307</span>
+              <span class="route-submetric">Payback: 18 meses</span>
+            </div>
+            <span class="route-val-pill">R$ 45/t</span>
+          </button>
+
+          <button class="route-tab-btn" data-route="rota_c" id="tabRouteC">
+            <span class="route-letter">C</span>
+            <div class="route-tab-info">
+              <span class="route-name">Fíler & Argamassas</span>
+              <span class="route-submetric">Payback: 22 meses</span>
+            </div>
+            <span class="route-val-pill high">R$ 165/t</span>
+          </button>
+        </div>
+
+        <!-- Visual Escalating Value Progression Ladder -->
+        <div class="valuation-ladder">
+          <div class="ladder-header">
+            <span class="ladder-title">Curva de Valoração Crescente por Tonelada (Receita / Economia):</span>
+            <span class="ladder-highlight" id="ladderHighlightText">Rota A: +R$ 28,00 / t</span>
+          </div>
+          <div class="ladder-track">
+            <div class="ladder-step step-waste" title="Passivo Linear Tradicional (Custo de Dragagem/Bacias)">
+              <span class="step-label">Passivo Tradicional</span>
+              <span class="step-cost">-R$ 45/t (Custo)</span>
+            </div>
+            <div class="ladder-arrow">➔</div>
+            <div class="ladder-step step-a active" id="ladderStepA" title="Rota A: Cerâmica Vermelha (Substituição de Argila)">
+              <span class="step-label">Rota A: Cerâmica</span>
+              <span class="step-val">R$ 28/t</span>
+            </div>
+            <div class="ladder-arrow">➔</div>
+            <div class="ladder-step step-b" id="ladderStepB" title="Rota B: Agregados Reciclados & Pavers (CONAMA 307)">
+              <span class="step-label">Rota B: Agregados</span>
+              <span class="step-val">R$ 45/t</span>
+            </div>
+            <div class="ladder-arrow">➔</div>
+            <div class="ladder-step step-c" id="ladderStepC" title="Rota C: Fíler Nobre & Argamassas Ecoeficientes (Multifio Puro)">
+              <span class="step-label">Rota C: Fíler Nobre</span>
+              <span class="step-val">R$ 165/t</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Route Detailed Display -->
+        <div class="route-detail-card" id="routeDetailCard">
+          <div class="route-detail-top">
+            <div class="route-badge-box">
+              <span class="route-code-tag" id="routeCodeTag">ROTA A</span>
+              <span class="route-norm-tag" id="routeNormTag">ABNT NBR 10004 (Classe II B / Inerte)</span>
+            </div>
+            <span class="route-logistics-badge" id="routeLogisticsBadge">Raio Logístico: Até 45 km</span>
+          </div>
+
+          <h4 class="route-detail-title" id="routeDetailTitle">Incorporação em Cerâmica Vermelha e Revestimentos</h4>
+          <p class="route-detail-desc" id="routeDetailDesc">
+            Substituição de 10% a 20% da massa argilosa por pó de granito/mármore de multifio na fabricação de tijolos, blocos cerâmicos e telhas. O fino mineral atua como fundente, reduzindo a temperatura de queima dos fornos de 950°C para 900°C e diminuindo o consumo de biomassa/gás.
+          </p>
+
+          <!-- Key Financial Metrics 4-Grid -->
+          <div class="route-kpi-grid">
+            <div class="kpi-box">
+              <span class="kpi-label">CAPEX ESTIMADO</span>
+              <span class="kpi-value" id="kpiCapex">R$ 180.000</span>
+              <span class="kpi-sub">Adaptação / Peneiramento</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">OPEX OPERACIONAL</span>
+              <span class="kpi-value" id="kpiOpex">R$ 18,50 / ton</span>
+              <span class="kpi-sub">Secagem / Dosagem</span>
+            </div>
+            <div class="kpi-box highlight-revenue">
+              <span class="kpi-label">RECEITA / ECONOMIA</span>
+              <span class="kpi-value" id="kpiReceita">R$ 28,00 / ton</span>
+              <span class="kpi-sub" id="kpiMarginSub">Margem Líq: +R$ 9,50/t</span>
+            </div>
+            <div class="kpi-box highlight-payback">
+              <span class="kpi-label">PAYBACK ESTIMADO</span>
+              <span class="kpi-value" id="kpiPayback">14 meses</span>
+              <span class="kpi-sub">Retorno Mais Rápido</span>
+            </div>
+          </div>
+
+          <!-- Interactive Volume & Monthly Financial Calculator Slider -->
+          <div class="route-calculator-box">
+            <div class="calc-header">
+              <span class="calc-label">Simular Volume Mensal Processado:</span>
+              <strong class="calc-vol-display" id="calcVolDisplay">2.000 toneladas/mês</strong>
+            </div>
+            <input type="range" class="calc-slider" id="calcVolumeSlider" min="500" max="4000" step="250" value="2000" aria-label="Volume mensal processado em toneladas">
+            
+            <div class="calc-results-strip">
+              <div class="calc-res-item">
+                <span class="res-lbl">Economia / Receita Bruta:</span>
+                <span class="res-val" id="resGross">R$ 56.000 / mês</span>
+              </div>
+              <div class="calc-res-item">
+                <span class="res-lbl">OPEX Total Mensal:</span>
+                <span class="res-val" id="resOpex">R$ 37.000 / mês</span>
+              </div>
+              <div class="calc-res-item highlight">
+                <span class="res-lbl">Resultado Líquido Anual:</span>
+                <span class="res-val-gain" id="resNetAnnual">R$ 228.000 / ano</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -329,26 +490,85 @@
             <div class="pitch-highlight">Risco de Interrupção Operacional: Reduzido a Zero</div>
           </div>
         </div>
+
+        <!-- v5 Detailed Route Valuation & Payback Comparison Table -->
+        <div class="executive-routes-section">
+          <div class="routes-section-header">
+            <div>
+              <span class="modal-tag">PROPOSTA TÉCNICA v5 — OUTUBRO DE 2026</span>
+              <h3 style="font-family:var(--font-display); font-size:18px; color:var(--text-white); margin-top:2px;">
+                Estimativas Econômicas e Payback por Rota Tecnológica (Base: 2.000 t/mês)
+              </h3>
+            </div>
+            <span class="routes-status-badge">Valores Vigentes de Mercado</span>
+          </div>
+
+          <div class="table-wrapper" style="margin-top:12px;">
+            <table class="clean-table">
+              <thead>
+                <tr>
+                  <th>Rota Tecnológica</th>
+                  <th>CAPEX Estimado</th>
+                  <th>OPEX (R$/t)</th>
+                  <th>Receita / Economia</th>
+                  <th>Payback Estimado</th>
+                  <th>Raio Logístico Viável</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Rota A: Cerâmica Vermelha</strong><br><small style="color:var(--text-muted)">Substituição de 10-20% argila; queima a 900°C</small></td>
+                  <td>R$ 180.000</td>
+                  <td>R$ 18,50</td>
+                  <td style="color:var(--accent-amber); font-weight:700;">R$ 28,00 / ton</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">14 meses</td>
+                  <td>Até 45 km</td>
+                </tr>
+                <tr>
+                  <td><strong>Rota B: Agregados CONAMA 307</strong><br><small style="color:var(--text-muted)">Brita reciclada, sub-base e pavers NBR 9781</small></td>
+                  <td>R$ 450.000</td>
+                  <td>R$ 22,00</td>
+                  <td style="color:var(--accent-amber); font-weight:700;">R$ 45,00 / ton</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">18 meses</td>
+                  <td>Até 35 km</td>
+                </tr>
+                <tr>
+                  <td><strong>Rota C: Fíler Nobre & Argamassas</strong><br><small style="color:var(--text-muted)">Micronização de multifio puro (Classe II B)</small></td>
+                  <td>R$ 920.000</td>
+                  <td>R$ 55,00</td>
+                  <td style="color:#00E676; font-weight:700;">R$ 165,00 / ton</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">22 meses</td>
+                  <td>Até 120 km</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="routes-strategic-summary" style="margin-top:14px; padding:12px 16px; background:rgba(255,255,255,0.025); border-left:3px solid var(--accent-amber); border-radius:var(--radius-xs); font-size:13px; line-height:1.6; color:var(--text-secondary);">
+            <strong>Diretriz Estratégica para PMEs (v5):</strong> A análise financeira evidencia que a <strong>Rota A</strong> apresenta o menor tempo de retorno (<strong>14 meses</strong>) para o consórcio de PMEs devido ao baixo investimento de adaptação nas olarias locais, enquanto a <strong>Rota C</strong> gera a máxima agregação de valor (+R$ 110/t de margem líquida), justificando um raio logístico expandido de até 120 km no Sul do Espírito Santo.
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Academic Coursework Modal (5 Core Criteria of the Assignment) -->
+  <!-- Academic Coursework Modal (5 Core Criteria of the Assignment - v5) -->
   <div class="dossier-modal" id="dossierModal" aria-hidden="true">
     <div class="modal-backdrop" id="dossierBackdrop"></div>
     <div class="modal-dialog">
       <div class="modal-header">
         <div>
-          <span class="modal-tag">ESTUDO TÉCNICO DE CONCLUSÃO DE PÓS-GRADUAÇÃO</span>
+          <span class="modal-tag">IFES — PÓS-GRADUAÇÃO EM INDÚSTRIA 4.0 | PROPOSTA TÉCNICA v5</span>
           <h2>Proposta Técnica de Mineração Sustentável (5 Eixos ABNT)</h2>
-          <p class="modal-sub">Trabalho estruturado conforme critérios da disciplina de Indústria 4.0 & Mineração 4.0
+          <p class="modal-sub">
+            Autor: <strong>Everton Santos Rocha</strong> | Instituto Federal do Espírito Santo (IFES) — Outubro/2026
           </p>
         </div>
         <div class="modal-header-actions">
           <button class="btn-print" id="btnPrintDossier" title="Imprimir ou Salvar em PDF">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6 9 6 2 18 2 18 9" />
-              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+              <path d="M6 18H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
               <rect x="6" y="14" width="12" height="8" />
             </svg>
             Imprimir Dossiê
@@ -368,21 +588,15 @@
         <article class="eixo-section">
           <div class="eixo-header">
             <span class="eixo-pill">EIXO 1</span>
-            <h3>Diagnóstico Ambiental e Riscos da Operação</h3>
+            <h3>Diagnóstico Ambiental e Caracterização Normativa dos Resíduos</h3>
           </div>
           <p>
-            O Arranjo Produtivo Local (APL) de rochas ornamentais de Cachoeiro de Itapemirim (ES) responde pela maior
-            concentração de teares de beneficiamento de mármore e granito da América Latina. O diagnóstico de uma planta
-            convencional revela dois gargalos críticos:
+            O Arranjo Produtivo Local (APL) de rochas ornamentais de Cachoeiro de Itapemirim (ES) responde por mais de 80% das exportações brasileiras de granitos e mármores, gerando anualmente cerca de <strong>1,2 milhão de toneladas de resíduos finos</strong> (lama abrasiva de teares e pó de serragem). A viabilidade de reuso depende criticamente da tecnologia de corte:
           </p>
           <ul class="eixo-list">
-            <li><strong>Gestão de Rejeitos (Lamas Abrasivas):</strong> Geração de cerca de 48 toneladas diárias de polpa
-              com finos de corte. No modelo tradicional, a disposição em bacias a céu aberto apresenta riscos de
-              transbordamento pluvial, infiltração em aquíferos e passivo de área ocupada.</li>
-            <li><strong>Uso Intensivo de Água:</strong> O resfriamento de teares multifio consome volumes expressivos
-              (140 m³/h). A ausência de circuito fechado com alta eficiência obriga captações elevadas, vulneráveis a
-              restrições de outorga pelo IEMA/AGERH em estiagens e risco de descarte com sólidos suspensos na calha do
-              Rio Itapemirim.</li>
+            <li><strong>Teares Multilâmina Convencionais (Granalha de Aço e Cal):</strong> A mistura de água, cal hidratada e granalha de aço gera lama alcalina com elevada presença de óxidos de ferro. Conforme a <strong>ABNT NBR 10004</strong>, classifica-se como <strong>Classe II A (Não Inertes)</strong>, demandando ensaios de lixiviação (NBR 10005) e solubilização (NBR 10006) para autorização de descarte ou incorporação restrita.</li>
+            <li><strong>Teares Multifio Diamantado:</strong> O corte diamantado utiliza exclusivamente água limpa para refrigeração, sem insumos químicos. A lama resultante possui alta pureza mineralógica (sílica, feldspato e carbonatos), enquadrando-se como <strong>Classe II B (Inertes)</strong>, viabilizando aplicação nobre direta na cerâmica, pisos, argamassas e artefatos de concreto.</li>
+            <li><strong>Intensidade de Recursos Hídricos:</strong> O beneficiamento consome de 4 a 8 m³ de água por m³ de chapa serrada, exigindo circuito fechado automatizado para mitigar riscos de outorga pelo IEMA/AGERH e assoreamento na bacia do Rio Itapemirim.</li>
           </ul>
         </article>
 
@@ -390,25 +604,66 @@
         <article class="eixo-section">
           <div class="eixo-header">
             <span class="eixo-pill">EIXO 2</span>
-            <h3>Tecnologias de Economia Circular & Mineração Verde</h3>
+            <h3>Tecnologias de Economia Circular, Circuito Fechado & 3 Rotas de Valoração</h3>
           </div>
+          <p>
+            A transição sustentável do APL estrutura-se na eficiência hídrica de ciclo fechado (>92% de recirculação com floculação automatizada e decantação lamelar) e na desidratação mecânica em filtro-prensa a 16 bar, gerando tortas com umidade residual inferior a 15% (reduzindo em 40% o peso para frete rodoviário).
+          </p>
           <div class="eixo-grid">
             <div class="eixo-card">
-              <h4>Circuito Fechado de Clarificação e Filtros-Prensa</h4>
-              <p>Decantadores lamelares acelerados por polieletrólitos aniônicos e filtros-prensa mecânicos a 16 bar.
-                Recuperam água límpida com <strong>taxa de recirculação superior a 90%</strong> e geram tortas com menos
-                de 18% de umidade residual.</p>
+              <h4>Rota A: Cerâmica Vermelha</h4>
+              <p>Substituição de 10% a 20% da massa argilosa por pó de multifio. O resíduo atua como fundente, reduzindo a queima de 950°C para 900°C. <strong>CAPEX: R$ 180.000 | Payback: 14 meses | Raio: 45 km</strong>.</p>
             </div>
             <div class="eixo-card">
-              <h4>Empilhamento a Seco (Dry Stacking)</h4>
-              <p>Disposição controlada e compactada em células de terraço drenadas, com classificação Classe II B (NBR
-                10004), <strong>eliminando definitivamente barragens de contenção</strong> e riscos de liquefação.</p>
+              <h4>Rota B: Agregados CONAMA 307</h4>
+              <p>Britagem de aparas e estabilização de tortas para brita reciclada, sub-base e pavers (NBR 9781). Venda a R$ 45/t vs R$ 75/t brita virgem. <strong>CAPEX: R$ 450.000 | Payback: 18 meses | Raio: 35 km</strong>.</p>
             </div>
             <div class="eixo-card">
-              <h4>Artefatos Cimentícios e Agregados Reciclados</h4>
-              <p>Incorporação de finos em traços de <strong>blocos intertravados (pavers NBR 9781)</strong> atingindo
-                fck > 35 MPa, e britagem de aparas para substituição de areia e brita virgem (Resolução CONAMA 307).</p>
+              <h4>Rota C: Fíler & Argamassas</h4>
+              <p>Micronização de resíduo inerte (Classe II B) para fíler nobre em argamassas colantes e polímeros. Venda a R$ 165/t (margem +R$ 110/t). <strong>CAPEX: R$ 920.000 | Payback: 22 meses | Raio: 120 km</strong>.</p>
             </div>
+          </div>
+
+          <!-- Tabela Consolidada v5 -->
+          <div class="table-wrapper" style="margin-top:14px;">
+            <table class="clean-table">
+              <thead>
+                <tr>
+                  <th>Rota Tecnológica</th>
+                  <th>CAPEX Estimado</th>
+                  <th>OPEX (R$/t)</th>
+                  <th>Receita / Economia</th>
+                  <th>Payback Estimado</th>
+                  <th>Raio Logístico Viável</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Rota A: Cerâmica Vermelha</strong></td>
+                  <td>R$ 180.000</td>
+                  <td>R$ 18,50</td>
+                  <td>R$ 28,00 / ton</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">14 meses</td>
+                  <td>Até 45 km</td>
+                </tr>
+                <tr>
+                  <td><strong>Rota B: Agregados CONAMA 307</strong></td>
+                  <td>R$ 450.000</td>
+                  <td>R$ 22,00</td>
+                  <td>R$ 45,00 / ton</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">18 meses</td>
+                  <td>Até 35 km</td>
+                </tr>
+                <tr>
+                  <td><strong>Rota C: Fíler & Argamassas Nobres</strong></td>
+                  <td>R$ 920.000</td>
+                  <td>R$ 55,00</td>
+                  <td>R$ 165,00 / ton</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">22 meses</td>
+                  <td>Até 120 km</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </article>
 
@@ -416,55 +671,56 @@
         <article class="eixo-section">
           <div class="eixo-header">
             <span class="eixo-pill">EIXO 3</span>
-            <h3>Indicadores ESG Mensuráveis & Tecnologias da Indústria 4.0</h3>
+            <h3>Arquitetura Digital & Protótipo Didático PMI 4.0 em Tempo Real</h3>
           </div>
+          <p>
+            Para simular o controle operacional e governança de resíduos, foi desenvolvida a plataforma protótipo didática 
+            <strong>PMI 4.0</strong>, acessível em: <a href="https://pmi40.siteser.com.br/" target="_blank" rel="noopener noreferrer" style="color:var(--text-accent); text-decoration:underline; font-weight:600;">https://pmi40.siteser.com.br/</a>.
+          </p>
           <div class="table-wrapper">
             <table class="clean-table">
               <thead>
                 <tr>
                   <th>Dimensão ESG</th>
                   <th>Indicadores Mensuráveis (KPIs)</th>
-                  <th>Tecnologias de Suporte (Indústria 4.0)</th>
+                  <th>Camada Arquitetural PMI 4.0 (Indústria 4.0)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong>Ambiental (E)</strong></td>
                   <td>
-                    • Taxa de recirculação hídrica (&gt;90%) e captação de água nova<br>
-                    • Toneladas de resíduos valorizados vs. destinados a aterro<br>
-                    • Consumo específico de energia por chapa cortada (kWh/m²)
+                    • Taxa de recirculação hídrica (&gt;92%) e descarga zero<br>
+                    • Toneladas de resíduos valorizados por rota (A, B, C)<br>
+                    • Umidade residual da torta (&lt;15%) e economia de frete
                   </td>
                   <td>
-                    • Sistema SCADA de balanço hídrico com medidores eletromagnéticos<br>
-                    • Sondas automáticas de pH e turbidez no canal de drenagem pluvial<br>
-                    • Sensores IoT de energia em quadros elétricos
+                    • <strong>Sensoriamento IIoT:</strong> Retrofitting de teares e filtro-prensa com ESP32 e medidores eletromagnéticos.<br>
+                    • Sondas óticas de pH e turbidez com bloqueio preventivo.
                   </td>
                 </tr>
                 <tr>
                   <td><strong>Social (S)</strong></td>
                   <td>
-                    • Concentração de poeira e ruído no perímetro fabril (NR-15 e NR-22)<br>
-                    • Postos de trabalho e renda média gerados na cooperativa de reciclagem<br>
-                    • Índice de aprovação da comunidade vizinha e chamados em ouvidoria
+                    • Particulados totais em suspensão (PTS &lt; 240 µg/m³)<br>
+                    • 38 postos de trabalho e renda gerados em cooperativa (+42%)<br>
+                    • Transparência pública e índice de aprovação comunitária
                   </td>
                   <td>
-                    • Estações perimétricas autônomas de monitoramento de particulados (PTS)<br>
-                    • Totem público digital de transparência socioambiental (PNUMA/APELL)<br>
-                    • Plataforma digital de capacitação técnica em segurança e dosagem
+                    • <strong>Totem de Transparência PNUMA/APELL:</strong> Monitoramento perimétrico aberto à sociedade civil de Cachoeiro.<br>
+                    • Capacitação técnica IFES/CETEM para dosagem segura.
                   </td>
                 </tr>
                 <tr>
                   <td><strong>Governança (G)</strong></td>
                   <td>
-                    • 100% de cumprimento no prazo das 32 condicionantes do IEMA e ANM<br>
-                    • Rastreabilidade total e laudos de lixiviação por lote de agregados<br>
-                    • Custo unitário de destinação final de resíduos (R$/t)
+                    • 100% de cumprimento no prazo das 32 condicionantes IEMA/ANM<br>
+                    • Laudos de lixiviação rastreados digitalmente (NBR 10004)<br>
+                    • Payback auditável e conformidade regulatória
                   </td>
                   <td>
-                    • ERP/CMMS integrado com alertas preditivos de renovação de licenças<br>
-                    • Identificação e rastreabilidade digital por QR Code com certificação<br>
-                    • Auditoria digital e relatórios automatizados para fiscalização
+                    • <strong>Barramento UNS (Unified Namespace):</strong> Mensageria MQTT/Sparkplug B sob norma ISA-95.<br>
+                    • <strong>Dashboard WebSockets:</strong> Telemetria contínua integrada à maquete eletrônica didática.
                   </td>
                 </tr>
               </tbody>
@@ -479,17 +735,12 @@
             <h3>Dimensão Social e Licença Social para Operar (SLO)</h3>
           </div>
           <p>
-            A sustentabilidade da proposta apoia-se em um modelo compartilhado de geração de valor local:
+            Como demonstrado por Santana et al. (2025), a sustentabilidade minerária requer a superação definitiva do risco de 'greenwashing' por meio da conquista da <strong>Licença Social para Operar (Social License to Operate - SLO)</strong>.
           </p>
           <ul class="eixo-list">
-            <li><strong>Parceria com Cooperativas Regionais:</strong> A fabricação de blocos intertravados e o manejo de
-              agregados geram 38 postos formais de trabalho com incremento de 42% na renda média dos cooperados em
-              Cachoeiro de Itapemirim.</li>
-            <li><strong>Capacitação com IFES e CETEM:</strong> Treinamento técnico contínuo em dosagem de misturas
-              cimentícias e normas de segurança ocupacional.</li>
-            <li><strong>Governança Ativa e Transparência:</strong> Painel digital aberto em tempo real na portaria com
-              canal de escuta para moradores, eliminando conflitos e consolidando a Licença Social para Operar (SLO).
-            </li>
+            <li><strong>Mitigação de Riscos Geotécnicos:</strong> O dry stacking e a reciclagem integral extinguem barragens de lama, eliminando o medo coletivo de colapsos na comunidade de Cachoeiro.</li>
+            <li><strong>Parceria com Cooperativas Regionais:</strong> Criação de 38 postos formais de trabalho com valor agregado na fabricação de pavers e manuseio de agregados.</li>
+            <li><strong>Auditoria Pública Aberta:</strong> O portal PMI 4.0 disponibiliza os dados em tempo real, garantindo conformidade auditável perante o Ministério Público, ANM, IEMA e moradores.</li>
           </ul>
         </article>
 
@@ -497,29 +748,164 @@
         <article class="eixo-section">
           <div class="eixo-header">
             <span class="eixo-pill">EIXO 5</span>
-            <h3>Referências Bibliográficas e Normativas (Formato ABNT)</h3>
+            <h3>Referências Bibliográficas e Normativas (Formato ABNT NBR 6023)</h3>
           </div>
           <div class="abnt-references">
-            <p>BRASIL MINERAL. <strong>Aproveitamento de rejeitos da Samarco alcança 45% em 2025</strong>. Brasil
-              Mineral, 2025.</p>
-            <p>CASTRO, N. F. (Ed.). <strong>Tecnologia de rochas ornamentais: pesquisa, lavra e beneficiamento</strong>.
-              Rio de Janeiro: CETEM/MCTI, 2013.</p>
-            <p>CONSELHO NACIONAL DO MEIO AMBIENTE (CONAMA). <strong>Resolução nº 307</strong>, de 5 de julho de 2002.
-              Estabelece diretrizes, critérios e procedimentos para a gestão dos resíduos da construção civil. Brasília:
-              Diário Oficial da União, 2002.</p>
-            <p>JANG, H.; TOPAL, E. <strong>Transformação da indústria de mineração e perspectivas futuras</strong>.
-              Tecnologia de Mineração, 2020.</p>
-            <p>SANTANA, H. C. et al. <strong>Percepção de risco e sua influência na vida dos moradores diante da
-                possibilidade de colapso de uma barragem de rejeitos de mineração</strong>. Cadernos de Saúde Pública,
-              v. 41, 2025.</p>
-            <p>SERVIÇO GEOLÓGICO DO BRASIL (SGB). <strong>Economia circular na mineração busca reduzir geração de
-                resíduos e estimular reuso de materiais descartados</strong>. Brasília: SGB, 2025.</p>
+            <p>ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. <strong>ABNT NBR 10004: Resíduos sólidos – Classificação</strong>. Rio de Janeiro: ABNT, 2004.</p>
+            <p>BRASIL. Ministério do Meio Ambiente. Conselho Nacional do Meio Ambiente. <strong>Resolução CONAMA nº 307</strong>, de 5 de julho de 2002. Estabelece diretrizes, critérios e procedimentos para a gestão dos resíduos da construção civil. Diário Oficial da União: Brasília, DF, 6 jul. 2002.</p>
+            <p>CASTRO, N. F. (Ed.). <strong>Tecnologia de rochas ornamentais: pesquisa, lavra e beneficiamento</strong>. Rio de Janeiro: CETEM/MCTI, 2013.</p>
+            <p>PEITER, C. C. et al. <strong>A busca da sustentabilidade na produção e uso das rochas ornamentais</strong>. In: CASTRO, N. F. (Ed.). Tecnologia de rochas ornamentais. Rio de Janeiro: CETEM/MCTI, 2013. p. 431-460.</p>
+            <p style="padding:10px 14px; background:rgba(197, 160, 89, 0.08); border-left:3px solid var(--accent-amber); border-radius:var(--radius-xs); color:var(--text-white);">
+              ROCHA, Everton Santos. <strong>Plano de Mineração Inteligente 4.0 (PMI 4.0): protótipo didático de governança e monitoramento de resíduos minerais em tempo real</strong>. Vitória: Instituto Federal do Espírito Santo (IFES), 2026. Disponível em: &lt;<a href="https://pmi40.siteser.com.br/" target="_blank" rel="noopener noreferrer" style="color:var(--text-accent); text-decoration:underline;">https://pmi40.siteser.com.br/</a>&gt;. Acesso em: 27 out. 2026.
+            </p>
+            <p>SANTANA, H. C. et al. <strong>Percepção de risco e sua influência na vida dos moradores diante da possibilidade de colapso de uma barragem de rejeitos de mineração</strong>. Cadernos de Saúde Pública, v. 41, e00123424, 2025.</p>
           </div>
         </article>
 
       </div>
     </div>
   </div>
+
+  <!-- Dedicated Author & Prototype Modal (Everton Santos Rocha - IFES) -->
+  <div class="author-modal" id="authorModal" aria-hidden="true">
+    <div class="modal-backdrop" id="authorBackdrop"></div>
+    <div class="modal-dialog author-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag">AUTORIA DO PROJETO & PLATAFORMA PROTÓTIPO DIDÁTICA</span>
+          <h2>Everton Santos Rocha</h2>
+          <p class="modal-sub">Instituto Federal do Espírito Santo (IFES) — Pós-Graduação em Indústria 4.0</p>
+        </div>
+        <button class="modal-close" id="btnCloseAuthor" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-content">
+        <!-- Author Profile Bio Card -->
+        <div class="author-profile-card">
+          <div class="author-avatar-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </div>
+          <div class="author-profile-info">
+            <h3 class="author-name">Everton Santos Rocha</h3>
+            <span class="author-role">Pesquisador & Desenvolvedor do Protótipo PMI 4.0</span>
+            <p class="author-bio">
+              Projeto acadêmico e tecnológico desenvolvido no âmbito da Pós-Graduação em Indústria 4.0 do Instituto Federal do Espírito Santo (IFES), propondo a transição da cadeia de rochas ornamentais de Cachoeiro de Itapemirim para a economia circular, circuito fechado hídrico e governança ciberfísica auditável.
+            </p>
+          </div>
+        </div>
+
+        <!-- Live Prototype Banner -->
+        <div class="prototype-showcase-box">
+          <div class="showcase-icon">
+            <span class="live-pulse"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <div class="showcase-text">
+            <span class="showcase-label">PROTÓTIPO DIDÁTICO EM OPERAÇÃO VIRTUAL</span>
+            <h4 class="showcase-title">Plano de Mineração Inteligente 4.0 (PMI 4.0)</h4>
+            <p class="showcase-desc">Gêmeo digital interativo com barramento unificado UNS (MQTT/Sparkplug B ISA-95), telemetria hídrica e monitoramento de resíduos minerais em tempo real.</p>
+            <a href="https://pmi40.siteser.com.br/" target="_blank" rel="noopener noreferrer" class="btn-open-prototype-url">
+              <span>Acessar Plataforma: https://pmi40.siteser.com.br/</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formal Citation Card with 1-Click Copy -->
+        <div class="formal-citation-block">
+          <div class="citation-block-header">
+            <div class="citation-badge-group">
+              <span class="citation-type-badge">ABNT NBR 6023:2018</span>
+              <span class="citation-status-badge">Entrada Formal por Autor Pessoa Física</span>
+            </div>
+            <span class="citation-access-date">Acesso: 27 out. 2026</span>
+          </div>
+
+          <div class="citation-code-wrapper">
+            <pre class="citation-text" id="authorCitationText">ROCHA, Everton Santos. Plano de Mineração Inteligente 4.0 (PMI 4.0): protótipo didático de governança e monitoramento de resíduos minerais em tempo real. Vitória: Instituto Federal do Espírito Santo (IFES), 2026. Disponível em: &lt;https://pmi40.siteser.com.br/&gt;. Acesso em: 27 out. 2026.</pre>
+          </div>
+
+          <div class="citation-actions">
+            <button class="btn-copy-citation primary" id="btnCopyAuthorCitation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <span id="copyAuthorCitationLabel">Copiar Citação ABNT</span>
+            </button>
+            <span class="citation-copied-toast" id="citationToast" aria-live="polite">Citação copiada com sucesso!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial Mineral Site Footer -->
+  <footer class="site-footer" id="mainFooter">
+    <div class="footer-inner">
+      <div class="footer-author-brand">
+        <div class="footer-author-pill">
+          <span class="author-dot-glow"></span>
+          <span>AUTORIA & DESENVOLVIMENTO DO PROTÓTIPO DIDÁTICO</span>
+        </div>
+        <h3 class="footer-name">Everton Santos Rocha</h3>
+        <p class="footer-inst">
+          Instituto Federal do Espírito Santo (IFES) — Programa de Pós-Graduação em Indústria 4.0
+        </p>
+        <p class="footer-project-meta">
+          Plano de Mineração Inteligente 4.0 (PMI 4.0): Maquete eletrônica e governança digital no APL de Cachoeiro de Itapemirim (ES) — Proposta Técnica v5 (Out/2026).
+        </p>
+      </div>
+
+      <div class="footer-prototype-col">
+        <span class="footer-col-title">PLATAFORMA PROTÓTIPO EM OPERAÇÃO VIRTUAL:</span>
+        <a href="https://pmi40.siteser.com.br/" target="_blank" rel="noopener noreferrer" class="footer-live-link" title="Abrir protótipo online https://pmi40.siteser.com.br/">
+          <span class="pulse-indicator"></span>
+          <div class="link-meta">
+            <span class="link-url">https://pmi40.siteser.com.br/</span>
+            <span class="link-desc">Monitoramento e Governança de Resíduos em Tempo Real ↗</span>
+          </div>
+        </a>
+
+        <div class="footer-actions-row">
+          <button class="btn-footer-author" id="btnOpenAuthorModalFooter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            <span>Sobre o Autor & Citação</span>
+          </button>
+
+          <button class="btn-footer-copy" id="btnCopyFooterCitation" title="Copiar citação ABNT">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <span id="footerCopyLabel">Copiar Citação ABNT</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Everton Santos Rocha | Instituto Federal do Espírito Santo (IFES) — Vitória/ES</span>
+      <span class="footer-tag">Proposta Técnica v5 • Acesso ao Protótipo: 27 out. 2026</span>
+    </div>
+  </footer>
 
   <!-- Ambient Audio & Logic -->
   <script src="app.js"></script>
