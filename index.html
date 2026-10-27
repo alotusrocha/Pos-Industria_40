@@ -62,6 +62,15 @@
         </svg>
       </a>
 
+      <button class="btn-quick-routes" id="btnQuickHeaderRoutes" title="Acesso Rápido: Custos & Estimativas por Rota v5">
+        <span class="chip-val-v5">v5</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="1" x2="12" y2="23" />
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+        <span>Custos & Rotas</span>
+      </button>
+
       <button class="btn-executive" id="btnOpenExecutive" title="Ver Análise de Investimento vs Custo e Payback por Rota">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
@@ -137,175 +146,216 @@
 
       </div>
 
-      <div class="diorama-under-bar">
-        <span class="diorama-scale-tag">MAQUETE ISOMÉTRICA 1:250</span>
-        <span class="diorama-interaction-hint">Selecione um ponto na maquete ou na lista abaixo</span>
-      </div>
-
-      <!-- Live Active Hotspot Spotlight (Always visible, NEVER clipped) -->
-      <div class="spotlight-card" id="spotlightCard">
-        <div class="spotlight-header">
-          <div class="spotlight-badge">
-            <span class="spotlight-code" id="spotlightCode">01.1</span>
-            <span class="spotlight-norm" id="spotlightNorm">CONAMA 357 / NBR 9898</span>
-          </div>
-          <span class="spotlight-status">EM DESTAQUE</span>
-        </div>
-        <h3 class="spotlight-title" id="spotlightTitle">Clarificação & Floculação</h3>
-        <p class="spotlight-summary" id="spotlightSummary">Tanques decantadores aceleram a sedimentação dos finos de
-          rocha com dosagem controlada de polímeros.</p>
-
-        <!-- ROI / Executive Rationale for this point -->
-        <div class="spotlight-roi-box">
-          <span class="roi-label">GANHO ESTRATÉGICO / INVESTIMENTO:</span>
-          <span class="roi-text" id="spotlightRoi">Elimina descarte em rio e reduz captação externa em 82%, gerando
-            economia operacional direta de água potável.</span>
-        </div>
-
-        <div class="spotlight-actions">
-          <button class="btn-inspect-deep" id="btnOpenDeepInspect">
-            <span>Ver Ficha Técnica & Simulação</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6" />
+      <!-- Stage View Segmented Switcher (Clean, fast, smartphone-optimized) -->
+      <div class="stage-view-bar" id="stageViewBar">
+        <div class="stage-view-segmented" role="tablist" aria-label="Modo de Visualização do Palco">
+          <button class="stage-seg-btn active" id="btnTabSpotlight" role="tab" aria-selected="true" aria-controls="spotlightCard" title="Ver detalhes do ponto inspecionado na planta">
+            <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
+            <span class="seg-label">Ponto Inspecionado</span>
           </button>
+          <button class="stage-seg-btn" id="btnTabRoutes" role="tab" aria-selected="false" aria-controls="routesValuationCard" title="Ver estimativas econômicas e simulação de rotas (Proposta Técnica v5)">
+            <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+            <span class="seg-label">Custos & Rotas (v5)</span>
+            <span class="seg-pill">R$ 28 ➔ R$ 165/t</span>
+          </button>
+        </div>
+        <div class="stage-scale-indicator">
+          <span>ESCALA 1:250</span>
         </div>
       </div>
 
-      <!-- Interactive Routes Economic Valuation Card (Proposta Técnica v5 — Outubro/2026) -->
-      <div class="routes-valuation-card" id="routesValuationCard">
-        <div class="routes-card-header">
-          <div class="routes-card-title-group">
-            <span class="routes-tag">ESTIMATIVAS ECONÔMICAS POR ROTA TECNOLÓGICA (v5 — OUTUBRO/2026)</span>
-            <h3 class="routes-main-title">Valoração Crescente de Resíduos Minerais</h3>
+      <!-- Stage Card Slot (Holds either Spotlight or Routes Valuation without vertical stacking) -->
+      <div class="stage-card-slot" id="stageCardSlot">
+
+        <!-- 1. Live Active Hotspot Spotlight (Shown when Ponto Inspecionado is active) -->
+        <div class="spotlight-card active" id="spotlightCard">
+          <div class="spotlight-header">
+            <div class="spotlight-badge">
+              <span class="spotlight-code" id="spotlightCode">01.1</span>
+              <span class="spotlight-norm" id="spotlightNorm">CONAMA 357 / NBR 9898</span>
+            </div>
+            <span class="spotlight-status">EM DESTAQUE</span>
           </div>
-          <span class="routes-capacity-badge" title="Capacidade padrão calculada na Proposta Técnica v5">
-            Base: 2.000 t/mês
-          </span>
-        </div>
+          <h3 class="spotlight-title" id="spotlightTitle">Clarificação & Floculação</h3>
+          <p class="spotlight-summary" id="spotlightSummary">Tanques decantadores aceleram a sedimentação dos finos de
+            rocha com dosagem controlada de polímeros.</p>
 
-        <p class="routes-lead-desc">
-          Avaliação comparativa de três rotas industriais viáveis no APL de Cachoeiro de Itapemirim, valorando finos desidratados de serrarias por economia circular com dados de mercado de Outubro de 2026.
-        </p>
-
-        <!-- Route Selector Buttons (Rota A, Rota B, Rota C) -->
-        <div class="routes-nav-tabs" role="tablist" aria-label="Rotas Tecnológicas de Valoração">
-          <button class="route-tab-btn active" data-route="rota_a" id="tabRouteA">
-            <span class="route-letter">A</span>
-            <div class="route-tab-info">
-              <span class="route-name">Cerâmica Vermelha</span>
-              <span class="route-submetric">Payback: 14 meses</span>
-            </div>
-            <span class="route-val-pill">R$ 28/t</span>
-          </button>
-
-          <button class="route-tab-btn" data-route="rota_b" id="tabRouteB">
-            <span class="route-letter">B</span>
-            <div class="route-tab-info">
-              <span class="route-name">Agregados CONAMA 307</span>
-              <span class="route-submetric">Payback: 18 meses</span>
-            </div>
-            <span class="route-val-pill">R$ 45/t</span>
-          </button>
-
-          <button class="route-tab-btn" data-route="rota_c" id="tabRouteC">
-            <span class="route-letter">C</span>
-            <div class="route-tab-info">
-              <span class="route-name">Fíler & Argamassas</span>
-              <span class="route-submetric">Payback: 22 meses</span>
-            </div>
-            <span class="route-val-pill high">R$ 165/t</span>
-          </button>
-        </div>
-
-        <!-- Visual Escalating Value Progression Ladder -->
-        <div class="valuation-ladder">
-          <div class="ladder-header">
-            <span class="ladder-title">Curva de Valoração Crescente por Tonelada (Receita / Economia):</span>
-            <span class="ladder-highlight" id="ladderHighlightText">Rota A: +R$ 28,00 / t</span>
+          <!-- ROI / Executive Rationale for this point -->
+          <div class="spotlight-roi-box">
+            <span class="roi-label">GANHO ESTRATÉGICO / INVESTIMENTO:</span>
+            <span class="roi-text" id="spotlightRoi">Elimina descarte em rio e reduz captação externa em 82%, gerando
+              economia operacional direta de água potável.</span>
           </div>
-          <div class="ladder-track">
-            <div class="ladder-step step-waste" title="Passivo Linear Tradicional (Custo de Dragagem/Bacias)">
-              <span class="step-label">Passivo Tradicional</span>
-              <span class="step-cost">-R$ 45/t (Custo)</span>
-            </div>
-            <div class="ladder-arrow">➔</div>
-            <div class="ladder-step step-a active" id="ladderStepA" title="Rota A: Cerâmica Vermelha (Substituição de Argila)">
-              <span class="step-label">Rota A: Cerâmica</span>
-              <span class="step-val">R$ 28/t</span>
-            </div>
-            <div class="ladder-arrow">➔</div>
-            <div class="ladder-step step-b" id="ladderStepB" title="Rota B: Agregados Reciclados & Pavers (CONAMA 307)">
-              <span class="step-label">Rota B: Agregados</span>
-              <span class="step-val">R$ 45/t</span>
-            </div>
-            <div class="ladder-arrow">➔</div>
-            <div class="ladder-step step-c" id="ladderStepC" title="Rota C: Fíler Nobre & Argamassas Ecoeficientes (Multifio Puro)">
-              <span class="step-label">Rota C: Fíler Nobre</span>
-              <span class="step-val">R$ 165/t</span>
-            </div>
+
+          <div class="spotlight-actions">
+            <button class="btn-inspect-deep" id="btnOpenDeepInspect">
+              <span>Ficha Técnica & Simulação</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+            <button class="btn-quick-to-routes" id="btnQuickToRoutes" title="Acessar Estimativas de Custo da Proposta v5">
+              <span>💰 Custos das Rotas (v5)</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        <!-- Dynamic Route Detailed Display -->
-        <div class="route-detail-card" id="routeDetailCard">
-          <div class="route-detail-top">
-            <div class="route-badge-box">
-              <span class="route-code-tag" id="routeCodeTag">ROTA A</span>
-              <span class="route-norm-tag" id="routeNormTag">ABNT NBR 10004 (Classe II B / Inerte)</span>
-            </div>
-            <span class="route-logistics-badge" id="routeLogisticsBadge">Raio Logístico: Até 45 km</span>
-          </div>
-
-          <h4 class="route-detail-title" id="routeDetailTitle">Incorporação em Cerâmica Vermelha e Revestimentos</h4>
-          <p class="route-detail-desc" id="routeDetailDesc">
-            Substituição de 10% a 20% da massa argilosa por pó de granito/mármore de multifio na fabricação de tijolos, blocos cerâmicos e telhas. O fino mineral atua como fundente, reduzindo a temperatura de queima dos fornos de 950°C para 900°C e diminuindo o consumo de biomassa/gás.
-          </p>
-
-          <!-- Key Financial Metrics 4-Grid -->
-          <div class="route-kpi-grid">
-            <div class="kpi-box">
-              <span class="kpi-label">CAPEX ESTIMADO</span>
-              <span class="kpi-value" id="kpiCapex">R$ 180.000</span>
-              <span class="kpi-sub">Adaptação / Peneiramento</span>
-            </div>
-            <div class="kpi-box">
-              <span class="kpi-label">OPEX OPERACIONAL</span>
-              <span class="kpi-value" id="kpiOpex">R$ 18,50 / ton</span>
-              <span class="kpi-sub">Secagem / Dosagem</span>
-            </div>
-            <div class="kpi-box highlight-revenue">
-              <span class="kpi-label">RECEITA / ECONOMIA</span>
-              <span class="kpi-value" id="kpiReceita">R$ 28,00 / ton</span>
-              <span class="kpi-sub" id="kpiMarginSub">Margem Líq: +R$ 9,50/t</span>
-            </div>
-            <div class="kpi-box highlight-payback">
-              <span class="kpi-label">PAYBACK ESTIMADO</span>
-              <span class="kpi-value" id="kpiPayback">14 meses</span>
-              <span class="kpi-sub">Retorno Mais Rápido</span>
-            </div>
-          </div>
-
-          <!-- Interactive Volume & Monthly Financial Calculator Slider -->
-          <div class="route-calculator-box">
-            <div class="calc-header">
-              <span class="calc-label">Simular Volume Mensal Processado:</span>
-              <strong class="calc-vol-display" id="calcVolDisplay">2.000 toneladas/mês</strong>
-            </div>
-            <input type="range" class="calc-slider" id="calcVolumeSlider" min="500" max="4000" step="250" value="2000" aria-label="Volume mensal processado em toneladas">
-            
-            <div class="calc-results-strip">
-              <div class="calc-res-item">
-                <span class="res-lbl">Economia / Receita Bruta:</span>
-                <span class="res-val" id="resGross">R$ 56.000 / mês</span>
+        <!-- 2. Interactive Routes Economic Valuation Card (Proposta Técnica v5 — Outubro/2026) -->
+        <div class="routes-valuation-card" id="routesValuationCard">
+          <div class="routes-card-header compact">
+            <div class="routes-card-title-group">
+              <div class="routes-tag-row">
+                <span class="routes-tag">ESTIMATIVAS ECONÔMICAS (v5 — OUTUBRO/2026)</span>
+                <span class="routes-capacity-badge" title="Capacidade padrão calculada na Proposta Técnica v5">Base: 2.000 t/mês</span>
               </div>
-              <div class="calc-res-item">
-                <span class="res-lbl">OPEX Total Mensal:</span>
-                <span class="res-val" id="resOpex">R$ 37.000 / mês</span>
+              <h3 class="routes-main-title">Valoração Crescente de Resíduos Minerais</h3>
+            </div>
+            <button class="btn-switch-back" id="btnSwitchBackToSpotlight" title="Voltar ao Ponto da Planta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <span>Ver Ponto</span>
+            </button>
+          </div>
+
+          <!-- Compact Segmented Route Selector Tabs (3 touch pills) -->
+          <div class="routes-nav-tabs compact" role="tablist" aria-label="Rotas Tecnológicas de Valoração">
+            <button class="route-tab-btn active" data-route="rota_a" id="tabRouteA">
+              <span class="route-letter">A</span>
+              <div class="route-tab-info">
+                <span class="route-name">Cerâmica</span>
+                <span class="route-submetric">14 meses</span>
               </div>
-              <div class="calc-res-item highlight">
-                <span class="res-lbl">Resultado Líquido Anual:</span>
-                <span class="res-val-gain" id="resNetAnnual">R$ 228.000 / ano</span>
+              <span class="route-val-pill">R$ 28/t</span>
+            </button>
+
+            <button class="route-tab-btn" data-route="rota_b" id="tabRouteB">
+              <span class="route-letter">B</span>
+              <div class="route-tab-info">
+                <span class="route-name">Agregados</span>
+                <span class="route-submetric">18 meses</span>
+              </div>
+              <span class="route-val-pill">R$ 45/t</span>
+            </button>
+
+            <button class="route-tab-btn" data-route="rota_c" id="tabRouteC">
+              <span class="route-letter">C</span>
+              <div class="route-tab-info">
+                <span class="route-name">Fíler Nobre</span>
+                <span class="route-submetric">22 meses</span>
+              </div>
+              <span class="route-val-pill high">R$ 165/t</span>
+            </button>
+          </div>
+
+          <!-- Visual Escalating Value Progression Ladder (Ultra Clean) -->
+          <div class="valuation-ladder compact">
+            <div class="ladder-header">
+              <span class="ladder-title">Curva de Valoração:</span>
+              <strong class="ladder-highlight" id="ladderHighlightText">Rota A: +R$ 28,00 / t</strong>
+            </div>
+            <div class="ladder-track">
+              <div class="ladder-step step-waste" title="Passivo Linear Tradicional (Custo de Dragagem/Bacias)">
+                <span class="step-label">Passivo</span>
+                <span class="step-cost">-R$ 45/t</span>
+              </div>
+              <span class="ladder-arrow">➔</span>
+              <button type="button" class="ladder-step step-a active" id="ladderStepA" title="Rota A: Cerâmica">
+                <span class="step-label">Rota A</span>
+                <span class="step-val">+R$ 28/t</span>
+              </button>
+              <span class="ladder-arrow">➔</span>
+              <button type="button" class="ladder-step step-b" id="ladderStepB" title="Rota B: Agregados">
+                <span class="step-label">Rota B</span>
+                <span class="step-val">+R$ 45/t</span>
+              </button>
+              <span class="ladder-arrow">➔</span>
+              <button type="button" class="ladder-step step-c" id="ladderStepC" title="Rota C: Fíler Nobre">
+                <span class="step-label">Rota C</span>
+                <span class="step-val high">+R$ 165/t</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Route Detailed Display -->
+          <div class="route-detail-card compact" id="routeDetailCard">
+            <div class="route-detail-top">
+              <div class="route-badge-box">
+                <span class="route-code-tag" id="routeCodeTag">ROTA A</span>
+                <span class="route-norm-tag" id="routeNormTag">ABNT NBR 10004</span>
+              </div>
+              <span class="route-logistics-badge" id="routeLogisticsBadge">Raio: Até 45 km</span>
+            </div>
+
+            <h4 class="route-detail-title" id="routeDetailTitle">Incorporação em Cerâmica Vermelha e Revestimentos</h4>
+            <p class="route-detail-desc" id="routeDetailDesc">
+              Substituição de 10% a 20% da massa argilosa por pó de granito/mármore na fabricação de blocos e telhas cerâmicas. O fino atua como fundente, reduzindo temperatura de queima de 950°C para 900°C com economia direta de biomassa/gás.
+            </p>
+
+            <!-- Key Financial Metrics 4-Grid (Mobile 2x2, Desktop 4x1) -->
+            <div class="route-kpi-grid compact">
+              <div class="kpi-box">
+                <span class="kpi-label">CAPEX ESTIMADO</span>
+                <span class="kpi-value" id="kpiCapex">R$ 180.000</span>
+                <span class="kpi-sub">Peneiramento</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">OPEX OPERACIONAL</span>
+                <span class="kpi-value" id="kpiOpex">R$ 18,50 / ton</span>
+                <span class="kpi-sub">Secagem / Dosagem</span>
+              </div>
+              <div class="kpi-box highlight-revenue">
+                <span class="kpi-label">RECEITA / GANHO</span>
+                <span class="kpi-value" id="kpiReceita">R$ 28,00 / ton</span>
+                <span class="kpi-sub" id="kpiMarginSub">Margem: +R$ 9,50/t</span>
+              </div>
+              <div class="kpi-box highlight-payback">
+                <span class="kpi-label">PAYBACK ESTIMADO</span>
+                <span class="kpi-value" id="kpiPayback">14 meses</span>
+                <span class="kpi-sub">Retorno Rápido</span>
+              </div>
+            </div>
+
+            <!-- Interactive Volume & Monthly Financial Calculator Slider with 1-Tap Mobile Presets -->
+            <div class="route-calculator-box compact">
+              <div class="calc-header">
+                <div class="calc-header-left">
+                  <span class="calc-label">Simular Volume Mensal:</span>
+                  <strong class="calc-vol-display" id="calcVolDisplay">2.000 t/mês</strong>
+                </div>
+                <!-- 1-Tap Volume Presets for Instant Smartphone Simulation -->
+                <div class="calc-preset-group" role="group" aria-label="Atalhos Rápidos de Volume">
+                  <button type="button" class="btn-vol-chip" data-vol="500">500t</button>
+                  <button type="button" class="btn-vol-chip" data-vol="1000">1.000t</button>
+                  <button type="button" class="btn-vol-chip active" data-vol="2000">2.000t</button>
+                  <button type="button" class="btn-vol-chip" data-vol="4000">4.000t</button>
+                </div>
+              </div>
+              <input type="range" class="calc-slider" id="calcVolumeSlider" min="500" max="4000" step="250" value="2000" aria-label="Volume mensal processado em toneladas">
+
+              <div class="calc-results-strip compact">
+                <div class="calc-res-item">
+                  <span class="res-lbl">Receita Mensal:</span>
+                  <span class="res-val" id="resGross">R$ 56.000 / mês</span>
+                </div>
+                <div class="calc-res-item">
+                  <span class="res-lbl">OPEX Mensal:</span>
+                  <span class="res-val" id="resOpex">R$ 37.000 / mês</span>
+                </div>
+                <div class="calc-res-item highlight">
+                  <span class="res-lbl">Resultado Líquido:</span>
+                  <span class="res-val-gain" id="resNetAnnual">+R$ 228.000 / ano</span>
+                </div>
               </div>
             </div>
           </div>
@@ -796,6 +846,15 @@
           <div class="author-profile-info">
             <h3 class="author-name">Everton Santos Rocha</h3>
             <span class="author-role">Pesquisador & Desenvolvedor do Protótipo PMI 4.0</span>
+            <div class="author-social-links">
+              <a href="https://www.linkedin.com/in/everton-web/" target="_blank" rel="noopener noreferrer" class="author-social-link linkedin" title="Conectar com Everton Santos Rocha no LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+                <span>LinkedIn: /in/everton-web/</span>
+                <span class="social-arrow">↗</span>
+              </a>
+            </div>
             <p class="author-bio">
               Projeto acadêmico e tecnológico desenvolvido no âmbito da Pós-Graduação em Indústria 4.0 do Instituto Federal do Espírito Santo (IFES), propondo a transição da cadeia de rochas ornamentais de Cachoeiro de Itapemirim para a economia circular, circuito fechado hídrico e governança ciberfísica auditável.
             </p>
@@ -882,6 +941,13 @@
         </a>
 
         <div class="footer-actions-row">
+          <a href="https://www.linkedin.com/in/everton-web/" target="_blank" rel="noopener noreferrer" class="btn-footer-social" title="Conectar com Everton Santos Rocha no LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            <span>LinkedIn / Perfil ↗</span>
+          </a>
+
           <button class="btn-footer-author" id="btnOpenAuthorModalFooter">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />

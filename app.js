@@ -484,12 +484,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerCopyLabel = document.getElementById('footerCopyLabel');
   const citationToast = document.getElementById('citationToast');
 
+  // Stage View Switcher Elements (Clean & fast switching without vertical scroll)
+  const btnTabSpotlight = document.getElementById('btnTabSpotlight');
+  const btnTabRoutes = document.getElementById('btnTabRoutes');
+  const spotlightCard = document.getElementById('spotlightCard');
+  const routesValuationCard = document.getElementById('routesValuationCard');
+  const btnQuickHeaderRoutes = document.getElementById('btnQuickHeaderRoutes');
+  const btnQuickToRoutes = document.getElementById('btnQuickToRoutes');
+  const btnSwitchBackToSpotlight = document.getElementById('btnSwitchBackToSpotlight');
+  const volPresetChips = document.querySelectorAll('.btn-vol-chip');
+  const ladderStepA = document.getElementById('ladderStepA');
+  const ladderStepB = document.getElementById('ladderStepB');
+  const ladderStepC = document.getElementById('ladderStepC');
+
   // Route Valuation Card Elements
   const routeTabBtns = document.querySelectorAll('.route-tab-btn');
   const calcVolumeSlider = document.getElementById('calcVolumeSlider');
 
   // Audio Button
   const btnToggleAudio = document.getElementById('btnToggleAudio');
+
+  // Stage View Switcher State & Handler
+  let currentStageView = 'spotlight';
+
+  function setStageView(viewName, smoothScroll = false) {
+    currentStageView = viewName;
+    const isSpotlight = (viewName === 'spotlight');
+
+    if (btnTabSpotlight) {
+      btnTabSpotlight.classList.toggle('active', isSpotlight);
+      btnTabSpotlight.setAttribute('aria-selected', isSpotlight ? 'true' : 'false');
+    }
+    if (btnTabRoutes) {
+      btnTabRoutes.classList.toggle('active', !isSpotlight);
+      btnTabRoutes.setAttribute('aria-selected', !isSpotlight ? 'true' : 'false');
+    }
+
+    if (spotlightCard) {
+      spotlightCard.classList.toggle('active', isSpotlight);
+    }
+    if (routesValuationCard) {
+      routesValuationCard.classList.toggle('active', !isSpotlight);
+    }
+
+    if (smoothScroll) {
+      const stageSlot = document.getElementById('stageCardSlot') || document.getElementById('stageViewBar');
+      if (stageSlot) {
+        stageSlot.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
 
   // =========================================================================
   // 3. SOUND SYNTHESIZER (Refined Acoustic Mineral Tone)
@@ -588,8 +632,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render Hotspot Beacons & Points Grid
     renderHotspots(data.hotspots);
 
-    // Focus on first point by default
-    selectHotspot(0);
+    // If Scenario 2 (Economia Circular), immediately show Routes Valuation Card and route A
+    if (scenarioId === 2) {
+      setStageView('routes');
+      updateRouteValuation('rota_a', activeVolume);
+      selectHotspot(1); // 02.2 (Rota A - Cerâmica)
+    } else {
+      setStageView('spotlight');
+      selectHotspot(0);
+    }
 
     playUiSound('switch');
   }
@@ -660,6 +711,17 @@ document.addEventListener('DOMContentLoaded', () => {
     spotlightTitle.textContent = item.title;
     spotlightSummary.textContent = item.summary;
     spotlightRoi.textContent = item.roi;
+
+    // In Scenario 2, if clicking one of the 3 circular route hotspots, synchronize route valuation
+    if (currentScenarioId === 2) {
+      if (index === 1) {
+        updateRouteValuation('rota_a', activeVolume);
+      } else if (index === 2) {
+        updateRouteValuation('rota_b', activeVolume);
+      } else if (index === 3) {
+        updateRouteValuation('rota_c', activeVolume);
+      }
+    }
 
     playUiSound('click');
   }
@@ -1104,10 +1166,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const netMonthly = grossMonthly - opexMonthly;
     const netAnnual = netMonthly * 12;
 
-    if (calcVolDisplay) calcVolDisplay.textContent = `${activeVolume.toLocaleString('pt-BR')} toneladas/mês`;
+    if (calcVolDisplay) calcVolDisplay.textContent = `${activeVolume.toLocaleString('pt-BR')} t/mês`;
     if (resGross) resGross.textContent = `R$ ${grossMonthly.toLocaleString('pt-BR')} / mês`;
     if (resOpex) resOpex.textContent = `R$ ${opexMonthly.toLocaleString('pt-BR')} / mês`;
-    if (resNetAnnual) resNetAnnual.textContent = `R$ ${netAnnual.toLocaleString('pt-BR')} / ano`;
+    if (resNetAnnual) resNetAnnual.textContent = `+R$ ${netAnnual.toLocaleString('pt-BR')} / ano`;
+
+    if (calcVolumeSlider && parseInt(calcVolumeSlider.value) !== activeVolume) {
+      calcVolumeSlider.value = activeVolume;
+    }
+
+    document.querySelectorAll('.btn-vol-chip').forEach(chip => {
+      chip.classList.toggle('active', parseInt(chip.getAttribute('data-vol')) === activeVolume);
+    });
   }
 
   // =========================================================================
@@ -1182,6 +1252,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Stage View Tabs (Segmented Switcher)
+  if (btnTabSpotlight) {
+    btnTabSpotlight.addEventListener('click', () => {
+      setStageView('spotlight');
+      playUiSound('switch');
+    });
+  }
+
+  if (btnTabRoutes) {
+    btnTabRoutes.addEventListener('click', () => {
+      setStageView('routes');
+      playUiSound('switch');
+    });
+  }
+
+  // Quick Access Button in Header (Instant 1-tap jump on mobile/desktop)
+  if (btnQuickHeaderRoutes) {
+    btnQuickHeaderRoutes.addEventListener('click', () => {
+      if (currentScenarioId !== 2) {
+        renderScenario(2);
+      }
+      setStageView('routes', true);
+      playUiSound('switch');
+    });
+  }
+
+  // Quick Link in Spotlight Card
+  if (btnQuickToRoutes) {
+    btnQuickToRoutes.addEventListener('click', () => {
+      setStageView('routes', true);
+      playUiSound('switch');
+    });
+  }
+
+  // Switch back button inside Routes Card
+  if (btnSwitchBackToSpotlight) {
+    btnSwitchBackToSpotlight.addEventListener('click', () => {
+      setStageView('spotlight');
+      playUiSound('switch');
+    });
+  }
+
   // Route selector tabs in the diorama stage
   routeTabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1197,6 +1309,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Volume 1-Tap Presets (500t, 1.000t, 2.000t, 4.000t - Perfect for Smartphones)
+  volPresetChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const vol = parseInt(chip.getAttribute('data-vol'));
+      updateRouteValuation(activeRouteKey, vol);
+      playUiSound('click');
+    });
+  });
+
+  // Clickable Ladder Steps
+  if (ladderStepA) {
+    ladderStepA.addEventListener('click', () => {
+      updateRouteValuation('rota_a', activeVolume);
+      playUiSound('switch');
+      if (currentScenarioId === 2) selectHotspot(1);
+    });
+  }
+  if (ladderStepB) {
+    ladderStepB.addEventListener('click', () => {
+      updateRouteValuation('rota_b', activeVolume);
+      playUiSound('switch');
+      if (currentScenarioId === 2) selectHotspot(2);
+    });
+  }
+  if (ladderStepC) {
+    ladderStepC.addEventListener('click', () => {
+      updateRouteValuation('rota_c', activeVolume);
+      playUiSound('switch');
+      if (currentScenarioId === 2) selectHotspot(3);
+    });
+  }
 
   // Volume slider in routes valuation card
   if (calcVolumeSlider) {
